@@ -24,12 +24,20 @@ const translations = {
     'header.getStarted': 'Get Started',
     
     // Hero
-    'hero.badge': 'Solutions IA pour la Croissance',
-    'hero.headline': 'Transformez votre business avec l\'IA en 10 jours, pas en 6 mois.',
-    'hero.subtitle': 'Kladriva combine consulting IA, mentoring et développement sur mesure pour accélérer votre croissance. Nous livrons des résultats concrets, pas des promesses.',
-    'hero.cta.primary': 'Audit gratuit en 24h',
-    'hero.cta.secondary': 'Voir nos réalisations',
-    'hero.trust': '70% de réduction du time-to-start : de 6 mois à 10 jours',
+    'hero.badge': 'AI Solutions for Growth',
+    'hero.headline': 'Turn AI into results, faster.',
+    'hero.subtitle': 'Kladriva helps you unlock growth with AI, mentoring, and tailored services — delivering measurable impact in weeks, not months.',
+    'hero.cta.primary': 'Get Free Audit in 24h',
+    'hero.cta.secondary': 'See Our Results',
+    'hero.trust': '70% reduction in time-to-start: from 6 months to 10 days',
+        'hero.banner.option1.headline': 'Turn AI into results, faster.',
+    'hero.banner.option1.subtitle': 'Kladriva helps you unlock growth with AI, mentoring, and tailored services — delivering measurable impact in weeks, not months.',
+    'hero.banner.option2.headline': 'AI that works for people, not the other way around.',
+    'hero.banner.option2.subtitle': 'At Kladriva, we combine technology, mentoring, and human insight to create solutions that drive real business growth.',
+    'hero.banner.option3.headline': 'From vision to execution — at the speed of Kladriva.',
+    'hero.banner.option3.subtitle': 'We guide you with AI consulting, mentoring, and tailored services to transform ideas into tangible success.',
+    'hero.banner.option4.headline': 'Your growth deserves more than promises — it needs results.',
+    'hero.banner.option4.subtitle': 'Kladriva delivers AI-driven strategies, mentoring, and custom-built solutions that accelerate your business impact.',
     
     // Core Activities
     'activities.title': 'Nos 3 Piliers Kladriva',
@@ -143,6 +151,14 @@ const translations = {
     'hero.cta.primary': 'Parler à un expert',
     'hero.cta.secondary': 'Découvrir nos services',
     'hero.trust': '70% de réduction du time-to-start : de 6 mois à 10 jours',
+    'hero.banner.option1.headline': 'Transformez l\'IA en résultats, plus rapidement.',
+    'hero.banner.option1.subtitle': 'Kladriva vous aide à débloquer la croissance avec l\'IA, le mentoring et des services sur mesure — livrant un impact mesurable en semaines, pas en mois.',
+    'hero.banner.option2.headline': 'L\'IA qui travaille pour les gens, pas l\'inverse.',
+    'hero.banner.option2.subtitle': 'Chez Kladriva, nous combinons technologie, mentoring et perspicacité humaine pour créer des solutions qui stimulent une vraie croissance business.',
+    'hero.banner.option3.headline': 'De la vision à l\'exécution — à la vitesse de Kladriva.',
+    'hero.banner.option3.subtitle': 'Nous vous guidons avec le consulting IA, le mentoring et des services sur mesure pour transformer vos idées en succès tangible.',
+    'hero.banner.option4.headline': 'Votre croissance mérite plus que des promesses — elle a besoin de résultats.',
+    'hero.banner.option4.subtitle': 'Kladriva livre des stratégies pilotées par l\'IA, du mentoring et des solutions sur mesure qui accélèrent votre impact business.'
     
     // Core Activities
     'activities.title': 'Nos 3 Piliers Kladriva',
