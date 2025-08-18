@@ -158,7 +158,7 @@ const translations = {
     'hero.banner.option3.headline': 'De la vision à l\'exécution — à la vitesse de Kladriva.',
     'hero.banner.option3.subtitle': 'Nous vous guidons avec le consulting IA, le mentoring et des services sur mesure pour transformer vos idées en succès tangible.',
     'hero.banner.option4.headline': 'Votre croissance mérite plus que des promesses — elle a besoin de résultats.',
-    'hero.banner.option4.subtitle': 'Kladriva livre des stratégies pilotées par l\'IA, du mentoring et des solutions sur mesure qui accélèrent votre impact business.'
+    'hero.banner.option4.subtitle': 'Kladriva livre des stratégies pilotées par l\'IA, du mentoring et des solutions sur mesure qui accélèrent votre impact business.',
     
     // Core Activities
     'activities.title': 'Nos 3 Piliers Kladriva',
