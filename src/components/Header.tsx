@@ -15,7 +15,7 @@ export default function Header() {
     { name: t('nav.activities'), href: '#activities' },
     { name: t('nav.values'), href: '#values' },
     { name: t('nav.about'), href: '#about' },
-    { name: t('nav.insights'), href: '#insights' },
+    { name: t('nav.insights'), href: '/blog' },
     { name: t('nav.contact'), href: '#contact' },
   ]
 
@@ -41,7 +41,7 @@ export default function Header() {
                 alt="Kladriva Logo"
                 width={64}
                 height={64}
-                className="w-16 h-16 object-contain"
+                className="w-20 h-20 object-contain"
               />
             </Link>
           </div>
