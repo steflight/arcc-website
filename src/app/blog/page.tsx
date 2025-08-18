@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import { getAllBlogPosts, getAllCategories, getAllTags, type BlogPost } from '@/lib/blog'
+import { getAllBlogPosts, getAllCategories, getAllTags } from '@/lib/blog'
 import BlogList from '@/components/BlogList'
 import BlogSearch from '@/components/BlogSearch'
 import BlogCategories from '@/components/BlogCategories'

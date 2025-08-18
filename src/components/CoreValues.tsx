@@ -114,7 +114,7 @@ export default function CoreValues() {
         >
           <div className="max-w-4xl mx-auto">
             <blockquote className="text-2xl md:text-3xl text-gray-800 italic font-light leading-relaxed">
-              "{t('values.quote')}"
+              &ldquo;{t('values.quote')}&rdquo;
             </blockquote>
             <div className="mt-8">
               <div className="inline-flex items-center space-x-2 text-gray-600">
