@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { Menu, X, Globe, ChevronDown } from 'lucide-react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { useLanguage } from '@/contexts/LanguageContext'
 
 export default function Header() {
@@ -29,13 +30,19 @@ export default function Header() {
   }
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-lg shadow-sm border-b border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link href="/" className="text-2xl font-bold text-gray-900">
-              Kladriva
+            <Link href="/" className="flex items-center">
+              <Image
+                src="/logo.png"
+                alt="Kladriva Logo"
+                width={64}
+                height={64}
+                className="w-16 h-16 object-contain"
+              />
             </Link>
           </div>
 
@@ -45,7 +52,7 @@ export default function Header() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200"
+                className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200 rounded-lg hover:bg-gray-50"
               >
                 {item.name}
               </Link>
@@ -58,15 +65,15 @@ export default function Header() {
             <div className="relative">
               <button
                 onClick={() => setIsLanguageOpen(!isLanguageOpen)}
-                className="flex items-center space-x-2 text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200"
+                className="flex items-center space-x-2 text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200 rounded-lg hover:bg-gray-50"
               >
                 <Globe className="h-4 w-4" />
-                                 <span>{language.toUpperCase()}</span>
+                <span>{language.toUpperCase()}</span>
                 <ChevronDown className="h-4 w-4" />
               </button>
               
               {isLanguageOpen && (
-                <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 border border-gray-200">
+                <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-1 z-50 border border-gray-200">
                   {languages.map((language) => (
                     <button
                       key={language.code}
@@ -84,7 +91,7 @@ export default function Header() {
             {/* CTA Button */}
             <Link
               href="#contact"
-              className="bg-blue-600 text-white px-6 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition-colors duration-200"
+              className="bg-blue-600 text-white px-6 py-3 rounded-xl text-sm font-medium hover:bg-blue-700 transition-all duration-200 hover:shadow-lg"
             >
               {t('header.getStarted')}
             </Link>
@@ -94,7 +101,7 @@ export default function Header() {
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-700 hover:text-blue-600"
+              className="text-gray-700 hover:text-blue-600 p-2 rounded-lg hover:bg-gray-50"
             >
               {isMenuOpen ? (
                 <X className="h-6 w-6" />
@@ -113,7 +120,7 @@ export default function Header() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium"
+                  className="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium rounded-lg hover:bg-gray-50"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
@@ -122,7 +129,7 @@ export default function Header() {
               <div className="pt-4 border-t border-gray-200">
                 <Link
                   href="#contact"
-                  className="bg-blue-600 text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-700"
+                  className="bg-blue-600 text-white block px-3 py-2 rounded-lg text-base font-medium hover:bg-blue-700"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {t('header.getStarted')}
