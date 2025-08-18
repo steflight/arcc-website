@@ -17,48 +17,70 @@ export interface BlogPost {
 const postsDirectory = path.join(process.cwd(), 'content/blog')
 
 export function getAllBlogPosts(): BlogPost[] {
-  // Get file names under /content/blog
-  const fileNames = fs.readdirSync(postsDirectory)
-  const allPostsData = fileNames
-    .filter((fileName) => fileName.endsWith('.mdx'))
-    .map((fileName) => {
-      // Remove ".mdx" from file name to get slug
-      const slug = fileName.replace(/\.mdx$/, '')
+  try {
+    // Check if directory exists
+    if (!fs.existsSync(postsDirectory)) {
+      console.warn('Blog directory not found:', postsDirectory)
+      return []
+    }
 
-      // Read markdown file as string
-      const fullPath = path.join(postsDirectory, fileName)
-      const fileContents = fs.readFileSync(fullPath, 'utf8')
+    // Get file names under /content/blog
+    const fileNames = fs.readdirSync(postsDirectory)
+    const allPostsData = fileNames
+      .filter((fileName) => fileName.endsWith('.mdx'))
+      .map((fileName) => {
+        try {
+          // Remove ".mdx" from file name to get slug
+          const slug = fileName.replace(/\.mdx$/, '')
 
-      // Use gray-matter to parse the post metadata section
-      const matterResult = matter(fileContents)
+          // Read markdown file as string
+          const fullPath = path.join(postsDirectory, fileName)
+          const fileContents = fs.readFileSync(fullPath, 'utf8')
 
-      // Combine the data with the slug
-      return {
-        slug,
-        title: matterResult.data.title,
-        excerpt: matterResult.data.excerpt,
-        date: matterResult.data.date,
-        author: matterResult.data.author,
-        category: matterResult.data.category,
-        tags: matterResult.data.tags || [],
-        featured: matterResult.data.featured || false,
-        content: matterResult.content,
+          // Use gray-matter to parse the post metadata section
+          const matterResult = matter(fileContents)
+
+          // Combine the data with the slug
+          return {
+            slug,
+            title: matterResult.data.title || 'Untitled',
+            excerpt: matterResult.data.excerpt || '',
+            date: matterResult.data.date || new Date().toISOString(),
+            author: matterResult.data.author || 'Kladriva Team',
+            category: matterResult.data.category || 'General',
+            tags: matterResult.data.tags || [],
+            featured: matterResult.data.featured || false,
+            content: matterResult.content,
+          }
+        } catch (error) {
+          console.error(`Error processing blog post ${fileName}:`, error)
+          return null
+        }
+      })
+      .filter(Boolean) as BlogPost[]
+
+    // Sort posts by date
+    return allPostsData.sort((a, b) => {
+      if (a.date < b.date) {
+        return 1
+      } else {
+        return -1
       }
     })
-
-  // Sort posts by date
-  return allPostsData.sort((a, b) => {
-    if (a.date < b.date) {
-      return 1
-    } else {
-      return -1
-    }
-  })
+  } catch (error) {
+    console.error('Error reading blog posts:', error)
+    return []
+  }
 }
 
 export function getBlogPostBySlug(slug: string): BlogPost | null {
   try {
     const fullPath = path.join(postsDirectory, `${slug}.mdx`)
+    
+    if (!fs.existsSync(fullPath)) {
+      return null
+    }
+
     const fileContents = fs.readFileSync(fullPath, 'utf8')
 
     // Use gray-matter to parse the post metadata section
@@ -67,16 +89,17 @@ export function getBlogPostBySlug(slug: string): BlogPost | null {
     // Combine the data with the slug
     return {
       slug,
-      title: matterResult.data.title,
-      excerpt: matterResult.data.excerpt,
-      date: matterResult.data.date,
-      author: matterResult.data.author,
-      category: matterResult.data.category,
+      title: matterResult.data.title || 'Untitled',
+      excerpt: matterResult.data.excerpt || '',
+      date: matterResult.data.date || new Date().toISOString(),
+      author: matterResult.data.author || 'Kladriva Team',
+      category: matterResult.data.category || 'General',
       tags: matterResult.data.tags || [],
       featured: matterResult.data.featured || false,
       content: matterResult.content,
     }
   } catch (error) {
+    console.error(`Error reading blog post ${slug}:`, error)
     return null
   }
 }

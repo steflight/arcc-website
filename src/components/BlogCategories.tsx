@@ -4,10 +4,17 @@ import { useState } from 'react'
 
 interface BlogCategoriesProps {
   categories: string[]
+  onCategorySelect?: (category: string | null) => void
 }
 
-export default function BlogCategories({ categories }: BlogCategoriesProps) {
+export default function BlogCategories({ categories, onCategorySelect }: BlogCategoriesProps) {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
+
+  const handleCategorySelect = (category: string) => {
+    const newSelection = selectedCategory === category ? null : category
+    setSelectedCategory(newSelection)
+    onCategorySelect?.(newSelection)
+  }
 
   return (
     <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
@@ -16,7 +23,7 @@ export default function BlogCategories({ categories }: BlogCategoriesProps) {
         {categories.map((category) => (
           <button
             key={category}
-            onClick={() => setSelectedCategory(selectedCategory === category ? null : category)}
+            onClick={() => handleCategorySelect(category)}
             className={`w-full text-left px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
               selectedCategory === category
                 ? 'bg-blue-100 text-blue-800 border border-blue-200'

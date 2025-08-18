@@ -4,17 +4,19 @@ import { useState } from 'react'
 
 interface BlogTagsProps {
   tags: string[]
+  onTagSelect?: (tags: string[]) => void
 }
 
-export default function BlogTags({ tags }: BlogTagsProps) {
+export default function BlogTags({ tags, onTagSelect }: BlogTagsProps) {
   const [selectedTags, setSelectedTags] = useState<string[]>([])
 
   const toggleTag = (tag: string) => {
-    setSelectedTags(prev => 
-      prev.includes(tag) 
-        ? prev.filter(t => t !== tag)
-        : [...prev, tag]
-    )
+    const newSelection = selectedTags.includes(tag) 
+      ? selectedTags.filter(t => t !== tag)
+      : [...selectedTags, tag]
+    
+    setSelectedTags(newSelection)
+    onTagSelect?.(newSelection)
   }
 
   return (
