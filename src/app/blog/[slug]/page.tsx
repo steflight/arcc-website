@@ -1,7 +1,6 @@
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { getBlogPostBySlug, getAllBlogPosts } from '@/lib/blog'
-import { MDXRemote } from 'next-mdx-remote/rsc'
 import { Calendar, Clock, User, Tag, ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
 
@@ -98,11 +97,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </div>
 
           {/* Tags */}
-          <div className="flex flex-wrap gap-2 mt-6">
+          <div className="flex flex-wrap gap-2 mt-4">
             {post.tags.map((tag) => (
               <span
                 key={tag}
-                className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-700"
+                className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-800"
               >
                 <Tag className="h-3 w-3 mr-1" />
                 {tag}
@@ -113,22 +112,13 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       </div>
 
       {/* Article Content */}
-      <div className="pb-16">
+      <div className="pb-24">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <article className="prose prose-lg prose-blue max-w-none">
-            <MDXRemote source={post.content} />
-          </article>
-        </div>
-      </div>
-
-      {/* Related Posts */}
-      <div className="py-16 bg-white border-t border-gray-200">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8">Related Articles</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* This would be populated with related posts based on category/tags */}
-            <div className="bg-gray-50 rounded-xl p-6">
-              <p className="text-gray-600">Related posts will be displayed here based on category and tags.</p>
+          <div className="prose prose-lg max-w-none">
+            <div className="bg-white rounded-2xl p-8 shadow-lg">
+              <div className="whitespace-pre-wrap text-gray-700 leading-relaxed">
+                {post.content}
+              </div>
             </div>
           </div>
         </div>

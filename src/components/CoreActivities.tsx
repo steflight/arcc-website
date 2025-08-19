@@ -7,7 +7,7 @@ import {
   Users, 
   Lightbulb, 
   Shield, 
-  BarChart3,
+  BarChart,
   ArrowRight
 } from 'lucide-react'
 import { useLanguage } from '@/contexts/LanguageContext'
@@ -58,7 +58,7 @@ export default function CoreActivities() {
       borderColor: 'border-red-200'
     },
     {
-      icon: BarChart3,
+      icon: BarChart,
       title: t('activities.performance.title'),
       description: t('activities.performance.desc'),
       color: 'from-indigo-500 to-indigo-600',
