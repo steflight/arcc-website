@@ -12,7 +12,7 @@ interface BlogPreviewClientProps {
 export default function BlogPreviewClient({ posts }: BlogPreviewClientProps) {
   return (
     <section id="insights" className="py-24 bg-gradient-to-br from-gray-50 via-white to-blue-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}

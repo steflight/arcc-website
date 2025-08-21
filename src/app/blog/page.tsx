@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import { getAllBlogPosts, getAllCategories, getAllTags } from '@/lib/blog'
+import Header from '@/components/Header'
 import BlogList from '@/components/BlogList'
 import BlogSearch from '@/components/BlogSearch'
 import BlogCategories from '@/components/BlogCategories'
@@ -18,6 +19,9 @@ export default function BlogPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50">
+      {/* Header Navigation */}
+      <Header />
+      
       {/* Hero Section */}
       <section className="pt-32 pb-16 bg-gradient-to-r from-gray-900 via-blue-900 to-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -33,7 +37,7 @@ export default function BlogPage() {
 
       {/* Main Content */}
       <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
             {/* Sidebar */}
             <div className="lg:col-span-1 space-y-8">

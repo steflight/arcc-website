@@ -12,11 +12,11 @@ export default function Header() {
   const { language, setLanguage, t } = useLanguage()
 
   const navigation = [
-    { name: t('nav.activities'), href: '#activities' },
-    { name: t('nav.values'), href: '#values' },
-    { name: t('nav.about'), href: '#about' },
+    { name: t('nav.activities'), href: '/#activities' },
+    { name: t('nav.values'), href: '/#values' },
+    { name: t('nav.about'), href: '/#about' },
     { name: t('nav.insights'), href: '/blog' },
-    { name: t('nav.contact'), href: '#contact' },
+    { name: t('nav.contact'), href: '/#contact' },
   ]
 
   const languages = [
@@ -31,7 +31,7 @@ export default function Header() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-lg shadow-sm border-b border-gray-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
@@ -90,7 +90,7 @@ export default function Header() {
 
             {/* CTA Button */}
             <Link
-              href="#contact"
+              href="/#contact"
               className="bg-blue-600 text-white px-6 py-3 rounded-xl text-sm font-medium hover:bg-blue-700 transition-all duration-200 hover:shadow-lg"
             >
               {t('header.getStarted')}

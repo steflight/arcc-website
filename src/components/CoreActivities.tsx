@@ -69,7 +69,7 @@ export default function CoreActivities() {
 
   return (
     <section id="activities" className="py-24 bg-gradient-to-br from-gray-50 via-white to-blue-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -78,12 +78,14 @@ export default function CoreActivities() {
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-8">
-            {t('activities.title')}
-          </h2>
-          <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            {t('activities.subtitle')}
-          </p>
+          <h2 
+            className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-8"
+            dangerouslySetInnerHTML={{ __html: t('activities.title') }}
+          />
+          <p 
+            className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed"
+            dangerouslySetInnerHTML={{ __html: t('activities.subtitle') }}
+          />
         </motion.div>
 
         {/* Activities Grid */}
@@ -95,7 +97,7 @@ export default function CoreActivities() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className={`group relative bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 border-2 ${activity.borderColor} hover:border-gray-300 overflow-hidden`}
+              className={`group relative bg-white rounded-3xl p-6 sm:p-8 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 border-2 ${activity.borderColor} hover:border-gray-300 overflow-hidden`}
             >
               {/* Background Pattern */}
               <div className={`absolute inset-0 ${activity.bgColor} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>

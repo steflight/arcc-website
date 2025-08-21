@@ -74,6 +74,44 @@ button:focus, a:focus, input:focus, textarea:focus {
   background-clip: text;
 }
 
+/* Captivating color transitions for highlighted text */
+.color-transition-1 {
+  color: #ffed15;
+  transition: color 0.3s ease-in-out;
+}
+
+.color-transition-2 {
+  color: #ffc915;
+  transition: color 0.3s ease-in-out;
+}
+
+.color-transition-3 {
+  color: #d7ff15;
+  transition: color 0.3s ease-in-out;
+}
+
+.color-transition-4 {
+  color: #ffe615;
+  transition: color 0.3s ease-in-out;
+}
+
+/* Hover effects for color transitions */
+.color-transition-1:hover {
+  color: #ffc915;
+}
+
+.color-transition-2:hover {
+  color: #d7ff15;
+}
+
+.color-transition-3:hover {
+  color: #ffe615;
+}
+
+.color-transition-4:hover {
+  color: #ffed15;
+}
+
 /* Custom animations */
 @keyframes fadeInUp {
   from {
