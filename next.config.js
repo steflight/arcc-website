@@ -4,7 +4,9 @@ const nextConfig = {
   trailingSlash: true,
   images: {
     unoptimized: true
-  }
+  },
+  // Configuration pour éviter les erreurs de build avec l'export statique
+  serverExternalPackages: [],
 }
 
 module.exports = nextConfig

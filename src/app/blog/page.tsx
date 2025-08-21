@@ -7,9 +7,42 @@ import BlogCategories from '@/components/BlogCategories'
 import BlogTags from '@/components/BlogTags'
 
 export const metadata: Metadata = {
-  title: 'AI Insights & Blog | Kladriva',
-  description: 'Discover the latest insights on AI transformation, mentoring success stories, and business growth strategies. Expert analysis and practical guidance.',
-  keywords: ['AI insights', 'AI transformation', 'business growth', 'AI mentoring', 'digital transformation'],
+  title: 'Blog & Insights IA | Kladriva',
+  description: 'Découvrez les dernières insights sur la transformation IA, les histoires de succès en mentoring et les stratégies de croissance business. Analyse experte et conseils pratiques.',
+  keywords: [
+    'Blog IA',
+    'Insights IA',
+    'Transformation IA',
+    'Croissance business',
+    'Mentoring IA',
+    'Transformation digitale',
+    'Stratégies IA',
+    'Consulting IA',
+    'Kladriva'
+  ],
+  openGraph: {
+    title: 'Blog & Insights IA | Kladriva',
+    description: 'Découvrez les dernières insights sur la transformation IA, les histoires de succès en mentoring et les stratégies de croissance business.',
+    type: 'website',
+    url: 'https://kladriva.ca/blog',
+    images: [
+      {
+        url: '/logo.png',
+        width: 1200,
+        height: 630,
+        alt: 'Blog Kladriva - Insights IA',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Blog & Insights IA | Kladriva',
+    description: 'Découvrez les dernières insights sur la transformation IA et la croissance business.',
+    images: ['/logo.png'],
+  },
+  alternates: {
+    canonical: '/blog',
+  },
 }
 
 export default function BlogPage() {

@@ -17,14 +17,49 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   
   if (!post) {
     return {
-      title: 'Post Not Found',
+      title: 'Article non trouvé | Kladriva Blog',
+      description: 'L\'article demandé n\'existe pas ou a été supprimé.',
     }
   }
 
   return {
     title: `${post.title} | Kladriva Blog`,
     description: post.excerpt,
-    keywords: post.tags,
+    keywords: [
+      ...post.tags,
+      'Kladriva',
+      'IA',
+      'Blog',
+      'Consulting',
+      'Mentoring',
+      'Transformation digitale'
+    ],
+    authors: [{ name: post.author }],
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      type: 'article',
+      publishedTime: post.date,
+      authors: [post.author],
+      tags: post.tags,
+      images: [
+        {
+          url: '/logo.png',
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.excerpt,
+      images: ['/logo.png'],
+    },
+    alternates: {
+      canonical: `/blog/${post.slug}`,
+    },
   }
 }
 
