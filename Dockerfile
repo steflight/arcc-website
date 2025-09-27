@@ -11,14 +11,14 @@ RUN apk add --no-cache libc6-compat
 # Copier les fichiers de dépendances
 COPY package*.json ./
 
-# Installer les dépendances avec cache optimisé
-RUN npm ci --only=production && npm cache clean --force
+# Installer toutes les dépendances (nécessaires pour le build)
+RUN npm ci && npm cache clean --force
 
 # Copier le code source
 COPY . .
 
 # Construire l'application Next.js avec export statique
-RUN npm run build
+RUN npm run build:static
 
 # Stage 2: Serveur web optimisé pour K3s
 FROM nginx:1.25-alpine AS production
