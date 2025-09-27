@@ -19,25 +19,25 @@ export default function Footer() {
 
   const footerLinks = {
     company: [
-      { name: t('nav.about'), href: '#about' },
-      { name: t('nav.activities'), href: '#activities' },
-      { name: t('nav.values'), href: '#values' },
-      { name: 'Careers', href: '#' },
-      { name: t('nav.insights'), href: '#' }
+      { name: t('nav.services'), href: '#services' },
+      { name: 'Première Rencontre', href: '#first-meeting' },
+      { name: 'Mot du Fondateur', href: '#founder-message' },
+      { name: t('nav.directory'), href: '#directory' },
+      { name: 'Blog', href: '/blog' }
     ],
     services: [
-      { name: 'Strategic Consulting', href: '#' },
-      { name: 'International Expansion', href: '#' },
-      { name: 'Organizational Development', href: '#' },
-      { name: 'Innovation Strategy', href: '#' },
-      { name: 'Risk Management', href: '#' }
+      { name: t('services.settlement.title'), href: '#services' },
+      { name: t('services.legal.title'), href: '#services' },
+      { name: t('services.mentorship.title'), href: '#services' },
+      { name: t('services.networking.title'), href: '#services' },
+      { name: t('services.crisis.title'), href: '#services' }
     ],
     resources: [
-      { name: 'Case Studies', href: '#' },
-      { name: 'White Papers', href: '#' },
-      { name: 'Webinars', href: '#' },
-      { name: 'Blog', href: '#' },
-      { name: 'Research Reports', href: '#' }
+      { name: 'Guide d\'Établissement', href: '/blog/guide-etablissement-nouveaux-arrivants' },
+      { name: 'Support Juridique', href: '/blog/defis-juridiques-camerounais-canada' },
+      { name: 'Programme de Mentorat', href: '/blog/pouvoir-mentorat-camerounais' },
+      { name: 'Événements', href: '#first-meeting' },
+      { name: 'Ressources', href: '#directory' }
     ]
   }
 
@@ -60,7 +60,7 @@ export default function Footer() {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <h3 className="text-2xl font-bold mb-4">Kladriva</h3>
+              <h3 className="text-2xl font-bold mb-4">ARCC</h3>
                              <p className="text-gray-300 mb-6 leading-relaxed">
                  {t('footer.company.description')}
                </p>
@@ -69,11 +69,11 @@ export default function Footer() {
               <div className="space-y-3">
                 <div className="flex items-center space-x-3 text-gray-300">
                   <Mail className="h-4 w-4" />
-                  <span>contact@kladriva.ca</span>
+                  <span>info@arcc-canada.ca</span>
                 </div>
                 <div className="flex items-center space-x-3 text-gray-300">
                   <Phone className="h-4 w-4" />
-                  <span>+1 (438) 951-5008</span>
+                  <span>+1 (514) 555-0123</span>
                 </div>
                 <div className="flex items-center space-x-3 text-gray-300">
                   <MapPin className="h-4 w-4" />
@@ -191,7 +191,7 @@ export default function Footer() {
               viewport={{ once: true }}
               className="text-gray-400 text-sm"
             >
-              © {currentYear} Kladriva. {t('footer.copyright')}
+              © {currentYear} ARCC. {t('footer.copyright')}
             </motion.div>
 
             {/* Social Links & Language */}

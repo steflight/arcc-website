@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  # Service de développement
+  app-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/.next
+    environment:
+      - NODE_ENV=development
+    profiles:
+      - dev
+
+  # Service de production
+  app-prod:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    ports:
+      - "80:80"
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+    profiles:
+      - prod
+
+  # Service de build uniquement (pour tester la construction)
+  app-build:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: builder
+    volumes:
+      - ./out:/app/out
+    command: ["npm", "run", "build"]
+    profiles:
+      - build
+
+# Réseau par défaut
+networks:
+  default:
+    name: arcc-website-network

@@ -8,10 +8,10 @@ export default function About() {
   const { t } = useLanguage()
   
   const stats = [
-    { icon: Users, number: '50+', label: t('about.stats.clients') },
-    { icon: Globe, number: '5+', label: t('about.stats.countries') },
-    { icon: TrendingUp, number: '98%', label: t('about.stats.success') },
-    { icon: CheckCircle, number: '3+', label: t('about.stats.experience') }
+    { icon: Users, number: '500+', label: t('about.stats.members') },
+    { icon: Globe, number: '6+', label: t('about.stats.provinces') },
+    { icon: TrendingUp, number: '95%', label: t('about.stats.success') },
+    { icon: CheckCircle, number: '4+', label: t('about.stats.experience') }
   ]
 
   const highlights = [
@@ -23,8 +23,15 @@ export default function About() {
   ]
 
   return (
-    <section id="about" className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+    <section id="about" className="py-24 bg-gradient-to-br from-white via-green-50 to-yellow-50 relative overflow-hidden">
+      {/* Background decorative elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-20 right-20 w-32 h-32 bg-green-200/20 rounded-full blur-2xl animate-pulse"></div>
+        <div className="absolute bottom-20 left-20 w-40 h-40 bg-yellow-200/20 rounded-full blur-2xl animate-pulse" style={{animationDelay: '1s'}}></div>
+        <div className="absolute top-1/2 left-1/3 w-24 h-24 bg-red-200/20 rounded-full blur-2xl animate-pulse" style={{animationDelay: '2s'}}></div>
+      </div>
+      
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left Column - Content */}
           <motion.div
@@ -67,7 +74,7 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
               viewport={{ once: true }}
-              className="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors duration-300 transform hover:scale-105 shadow-lg"
+              className="bg-gradient-to-r from-green-600 to-yellow-500 text-white px-8 py-4 rounded-2xl text-lg font-bold hover:from-green-500 hover:to-yellow-400 transition-all duration-300 transform hover:scale-110 shadow-2xl hover:shadow-green-500/25 border-2 border-green-400/50"
             >
               {t('about.cta')}
             </motion.button>
@@ -90,9 +97,9 @@ export default function About() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="text-center p-6 bg-gradient-to-br from-gray-50 to-blue-50 rounded-2xl border border-gray-100"
+                  className="text-center p-6 bg-gradient-to-br from-green-50 to-yellow-50 rounded-2xl border border-green-200 shadow-lg hover:shadow-xl transition-all duration-300"
                 >
-                  <div className="inline-flex p-3 rounded-full bg-blue-100 text-blue-600 mb-4">
+                  <div className="inline-flex p-3 rounded-full bg-gradient-to-r from-green-500 to-yellow-500 text-white mb-4">
                     <stat.icon className="h-6 w-6" />
                   </div>
                   <div className="text-3xl font-bold text-gray-900 mb-2">
@@ -111,12 +118,12 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
               viewport={{ once: true }}
-              className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white"
+              className="bg-gradient-to-r from-green-600 to-yellow-500 rounded-2xl p-8 text-white shadow-2xl"
             >
               <h3 className="text-2xl font-bold mb-4">
                 {t('about.vision.title')}
               </h3>
-              <p className="text-blue-100 leading-relaxed">
+              <p className="text-green-100 leading-relaxed">
                 {t('about.vision.desc')}
               </p>
             </motion.div>
@@ -127,7 +134,7 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
               viewport={{ once: true }}
-              className="bg-white rounded-2xl p-8 border border-gray-200 shadow-lg"
+              className="bg-white rounded-2xl p-8 border-2 border-green-200 shadow-2xl hover:shadow-green-500/10 transition-all duration-300"
             >
               <h3 className="text-2xl font-bold text-gray-900 mb-4">
                 {t('about.mission.title')}

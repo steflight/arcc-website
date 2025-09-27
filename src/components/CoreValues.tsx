@@ -19,7 +19,7 @@ export default function CoreValues() {
       icon: Target,
       title: t('values.excellence.title'),
       description: t('values.excellence.desc'),
-      color: 'from-blue-500 to-blue-600'
+      color: 'from-green-500 to-green-600'
     },
     {
       icon: Heart,
@@ -37,25 +37,32 @@ export default function CoreValues() {
       icon: Award,
       title: t('values.quality.title'),
       description: t('values.quality.desc'),
-      color: 'from-purple-500 to-purple-600'
+      color: 'from-yellow-600 to-green-500'
     },
     {
       icon: Users,
       title: t('values.collaboration.title'),
       description: t('values.collaboration.desc'),
-      color: 'from-green-500 to-green-600'
+      color: 'from-green-600 to-yellow-500'
     },
     {
       icon: Globe,
       title: t('values.global.title'),
       description: t('values.global.desc'),
-      color: 'from-indigo-500 to-indigo-600'
+      color: 'from-red-600 to-yellow-500'
     }
   ]
 
   return (
-    <section id="values" className="py-24 bg-gradient-to-br from-gray-50 to-blue-50">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+    <section id="values" className="py-24 bg-gradient-to-br from-yellow-50 via-green-50 to-red-50 relative overflow-hidden">
+      {/* Background decorative elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-10 right-20 w-40 h-40 bg-yellow-200/20 rounded-full blur-2xl animate-pulse"></div>
+        <div className="absolute bottom-10 left-20 w-32 h-32 bg-green-200/20 rounded-full blur-2xl animate-pulse" style={{animationDelay: '1s'}}></div>
+        <div className="absolute top-1/2 right-1/4 w-24 h-24 bg-red-200/20 rounded-full blur-2xl animate-pulse" style={{animationDelay: '2s'}}></div>
+      </div>
+      
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}

@@ -12,10 +12,10 @@ export default function Header() {
   const { language, setLanguage, t } = useLanguage()
 
   const navigation = [
-    { name: t('nav.activities'), href: '/#activities' },
-    { name: t('nav.values'), href: '/#values' },
-    { name: t('nav.about'), href: '/#about' },
-    { name: t('nav.insights'), href: '/blog' },
+    { name: t('nav.services'), href: '/#services' },
+    { name: 'Rencontre', href: '/#first-meeting' },
+    { name: 'Fondateur', href: '/#founder-message' },
+    { name: t('nav.directory'), href: '/#directory' },
     { name: t('nav.contact'), href: '/#contact' },
   ]
 
@@ -30,7 +30,7 @@ export default function Header() {
   }
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-lg shadow-sm border-b border-gray-200">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-lg shadow-lg border-b-2 border-gradient-to-r from-green-500 to-yellow-500">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
@@ -38,7 +38,7 @@ export default function Header() {
             <Link href="/" className="flex items-center">
               <Image
                 src="/logo.png"
-                alt="Kladriva Logo"
+                alt="ARCC Logo"
                 width={64}
                 height={64}
                 className="w-20 h-20 object-contain"
@@ -91,9 +91,9 @@ export default function Header() {
             {/* CTA Button */}
             <Link
               href="/#contact"
-              className="bg-blue-600 text-white px-6 py-3 rounded-xl text-sm font-medium hover:bg-blue-700 transition-all duration-200 hover:shadow-lg"
+              className="bg-gradient-to-r from-green-600 to-yellow-500 text-white px-6 py-3 rounded-2xl text-sm font-bold hover:from-green-500 hover:to-yellow-400 transition-all duration-300 hover:shadow-lg hover:scale-105 border border-green-400/50"
             >
-              {t('header.getStarted')}
+              {t('header.joinUs')}
             </Link>
           </div>
 
@@ -129,10 +129,10 @@ export default function Header() {
               <div className="pt-4 border-t border-gray-200">
                 <Link
                   href="#contact"
-                  className="bg-blue-600 text-white block px-3 py-2 rounded-lg text-base font-medium hover:bg-blue-700"
+                  className="bg-gradient-to-r from-green-600 to-yellow-500 text-white block px-3 py-2 rounded-2xl text-base font-bold hover:from-green-500 hover:to-yellow-400 transition-all duration-300"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  {t('header.getStarted')}
+                  {t('header.joinUs')}
                 </Link>
               </div>
             </div>

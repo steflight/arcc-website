@@ -1,5 +1,5 @@
 {
-  "name": "kladriva-corporate",
+  "name": "arcc-website",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,8 +9,9 @@
     "lint": "next lint",
     "export": "next build && next export",
     "deploy:build": "npm run build",
-    "deploy:prepare": "npm run build && echo '✅ Build ready for deployment' && echo '📁 Upload the contents of the out/ folder to your hosting'",
-    "deploy:test": "npm run build && cd out && python -m http.server 8000"
+    "deploy:prepare": "npm run build && echo '✅ Build ready for deployment with API support' && echo '🚀 Use: npm run start or deploy to a Node.js hosting'",
+    "deploy:test": "npm run build && npm run start",
+    "deploy:docker": "docker build -t arcc-website . && docker run -p 3000:3000 arcc-website"
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.1.12",
@@ -20,6 +21,7 @@
     "lucide-react": "^0.400.0",
     "next": "15.4.6",
     "next-mdx-remote": "^4.4.1",
+    "openai": "^5.23.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
