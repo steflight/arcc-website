@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { MessageCircle, X, Send, Phone, Mail, MapPin } from 'lucide-react'
+import { MessageCircle, X, Send, Phone, Mail, MapPin, ChevronDown, ChevronUp } from 'lucide-react'
 import MarkdownContent from './MarkdownContent'
 
 export default function Chatbot() {
@@ -10,6 +10,7 @@ export default function Chatbot() {
   const [message, setMessage] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [isQuickActionsOpen, setIsQuickActionsOpen] = useState(false)
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const [messages, setMessages] = useState([
     {
@@ -212,7 +213,7 @@ export default function Chatbot() {
             <div 
               className="p-6 text-white relative overflow-hidden"
               style={{
-                background: 'linear-gradient(135deg, #f59e0b 0%, #ea580c 50%, #dc2626 100%)'
+                backgroundColor: '#1a1a2e'
               }}
             >
               {/* Motifs décoratifs plus subtils */}
@@ -222,7 +223,7 @@ export default function Chatbot() {
               
               <div className="flex items-center justify-between relative z-10">
                 <div className="flex items-center space-x-4">
-                  <div className="w-14 h-14 bg-white/25 rounded-full flex items-center justify-center border-2 border-white/40 shadow-lg">
+                  <div className="w-14 h-14 bg-[#FF6347] rounded-full flex items-center justify-center border-2 border-[#FFD700] shadow-lg">
                     <MessageCircle className="h-7 w-7" />
                   </div>
                   <div>
@@ -243,7 +244,7 @@ export default function Chatbot() {
             </div>
 
             {/* Messages - Zone améliorée */}
-            <div className="flex-1 p-6 overflow-y-auto space-y-4 h-80 bg-gradient-to-b from-gray-50 to-amber-50/30">
+            <div className="flex-1 p-6 overflow-y-auto space-y-4 h-80 bg-[#F5F5DC]">
               {messages.map((msg) => (
                 <div
                   key={msg.id}
@@ -252,8 +253,8 @@ export default function Chatbot() {
                   <div
                     className={`max-w-sm px-5 py-4 rounded-2xl shadow-sm ${
                       msg.isBot
-                        ? 'bg-white text-gray-800 border border-amber-200/60 shadow-amber-100/50'
-                        : 'bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-lg shadow-amber-500/30'
+                        ? 'bg-white text-gray-800 border border-[#8B4513]/30 shadow-md'
+                        : 'bg-[#FF6347] text-white shadow-lg'
                     }`}
                   >
                     <div className="text-sm leading-relaxed font-medium">
@@ -295,25 +296,56 @@ export default function Chatbot() {
               <div ref={messagesEndRef} />
             </div>
 
-            {/* Quick Actions améliorées */}
-            <div className="p-4 border-t border-amber-200/50 bg-gradient-to-r from-amber-50/50 to-orange-50/50">
-              <p className="text-sm text-gray-700 mb-3 font-semibold">Actions rapides :</p>
-              <div className="grid grid-cols-1 gap-2">
-                {quickActions.map((action, index) => (
-                  <button
-                    key={index}
-                    onClick={() => handleQuickAction(action)}
-                    className="w-full text-left px-4 py-3 text-sm bg-white hover:bg-amber-50 rounded-xl transition-all duration-200 flex items-center space-x-3 border border-amber-200/40 hover:border-amber-300/60 hover:shadow-sm"
+            {/* Quick Actions - Accordéon */}
+            <div className="border-t border-[#8B4513]/30 bg-[#FFF8DC]">
+              {/* Header de l'accordéon */}
+              <button
+                onClick={() => setIsQuickActionsOpen(!isQuickActionsOpen)}
+                className="w-full p-4 text-left flex items-center justify-between hover:bg-[#FFFACD] transition-colors duration-200"
+              >
+                <div className="flex items-center space-x-2">
+                  <span className="text-sm font-semibold text-gray-700">Actions rapides</span>
+                  <span className="text-xs text-gray-500">({quickActions.length})</span>
+                </div>
+                {isQuickActionsOpen ? (
+                  <ChevronUp className="h-4 w-4 text-[#8B4513]" />
+                ) : (
+                  <ChevronDown className="h-4 w-4 text-[#8B4513]" />
+                )}
+              </button>
+
+              {/* Contenu de l'accordéon */}
+              <AnimatePresence>
+                {isQuickActionsOpen && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3, ease: 'easeInOut' }}
+                    className="overflow-hidden"
                   >
-                    <action.icon className="h-4 w-4 text-amber-600 flex-shrink-0" />
-                    <span className="font-medium text-gray-700">{action.text}</span>
-                  </button>
-                ))}
-              </div>
+                    <div className="px-4 pb-4 space-y-2">
+                      {quickActions.map((action, index) => (
+                        <button
+                          key={index}
+                          onClick={() => {
+                            handleQuickAction(action)
+                            setIsQuickActionsOpen(false) // Fermer l'accordéon après sélection
+                          }}
+                          className="w-full text-left px-4 py-3 text-sm bg-white hover:bg-[#FFFACD] rounded-xl transition-all duration-200 flex items-center space-x-3 border border-[#8B4513]/20 hover:border-[#8B4513]/40 hover:shadow-sm"
+                        >
+                          <action.icon className="h-4 w-4 text-[#8B4513] flex-shrink-0" />
+                          <span className="font-medium text-gray-700">{action.text}</span>
+                        </button>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
 
             {/* Input - Zone de saisie améliorée */}
-            <div className="p-6 border-t border-amber-200/50 bg-gradient-to-r from-white to-amber-50/30">
+            <div className="p-6 border-t border-[#8B4513]/30 bg-white">
               <div className="flex space-x-3">
                 <input
                   type="text"
@@ -321,7 +353,7 @@ export default function Chatbot() {
                   onChange={(e) => setMessage(e.target.value)}
                   onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
                   placeholder="Tapez votre message ici..."
-                  className="flex-1 px-5 py-4 border-2 border-amber-300/60 rounded-2xl text-sm focus:outline-none focus:ring-4 focus:ring-amber-200/50 focus:border-amber-400 transition-all duration-200 bg-white shadow-sm font-medium placeholder-gray-500"
+                  className="flex-1 px-5 py-4 border-2 border-[#8B4513]/40 rounded-2xl text-sm focus:outline-none focus:ring-4 focus:ring-[#8B4513]/20 focus:border-[#8B4513] transition-all duration-200 bg-white shadow-sm font-medium placeholder-gray-500"
                   disabled={isLoading}
                 />
                 <button
@@ -329,8 +361,8 @@ export default function Chatbot() {
                   disabled={!message.trim() || isLoading}
                   className="px-6 py-4 rounded-2xl font-bold text-white transition-all duration-200 transform hover:scale-105 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
                   style={{
-                    background: (message.trim() && !isLoading) ? 'linear-gradient(135deg, #f59e0b 0%, #ea580c 100%)' : '#d1d5db',
-                    boxShadow: (message.trim() && !isLoading) ? '0 4px 15px rgba(245, 158, 11, 0.4)' : 'none'
+                    background: (message.trim() && !isLoading) ? '#FF6347' : '#d1d5db',
+                    boxShadow: (message.trim() && !isLoading) ? '0 4px 15px rgba(255, 99, 71, 0.4)' : 'none'
                   }}
                 >
                   {isLoading ? (
@@ -344,7 +376,7 @@ export default function Chatbot() {
               {/* Indicateurs d'aide améliorés */}
               <div className="mt-4 space-y-2">
                 {message.length > 0 && (
-                  <div className="text-xs text-amber-600 font-medium flex items-center space-x-1">
+                  <div className="text-xs text-[#8B4513] font-medium flex items-center space-x-1">
                     <span>💬</span>
                     <span>Appuyez sur Entrée ou cliquez sur l'icône pour envoyer</span>
                   </div>

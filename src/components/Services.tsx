@@ -21,64 +21,64 @@ export default function Services() {
       icon: Home,
       title: t('services.settlement.title'),
       description: t('services.settlement.desc'),
-      color: 'from-amber-500 to-orange-600',
-      bgColor: 'bg-amber-50',
-      borderColor: 'border-amber-200'
+      color: '#8B4513',
+      bgColor: '#F5F5DC',
+      borderColor: '#D2691E'
     },
     {
       icon: Scale,
       title: t('services.legal.title'),
       description: t('services.legal.desc'),
-      color: 'from-red-500 to-red-600',
-      bgColor: 'bg-red-50',
-      borderColor: 'border-red-200'
+      color: '#DC143C',
+      bgColor: '#FFF8DC',
+      borderColor: '#B22222'
     },
     {
       icon: Users,
       title: t('services.mentorship.title'),
       description: t('services.mentorship.desc'),
-      color: 'from-yellow-500 to-yellow-600',
-      bgColor: 'bg-yellow-50',
-      borderColor: 'border-yellow-200'
+      color: '#FFD700',
+      bgColor: '#FFFACD',
+      borderColor: '#DAA520'
     },
     {
       icon: Network,
       title: t('services.networking.title'),
       description: t('services.networking.desc'),
-      color: 'from-amber-600 to-orange-500',
-      bgColor: 'bg-gradient-to-br from-amber-50 to-orange-50',
-      borderColor: 'border-amber-300'
+      color: '#32CD32',
+      bgColor: '#F0FFF0',
+      borderColor: '#228B22'
     },
     {
       icon: Heart,
       title: t('services.crisis.title'),
       description: t('services.crisis.desc'),
-      color: 'from-red-600 to-orange-500',
-      bgColor: 'bg-gradient-to-br from-red-50 to-orange-50',
-      borderColor: 'border-red-300'
+      color: '#FF6347',
+      bgColor: '#FFF0F5',
+      borderColor: '#CD5C5C'
     },
     {
       icon: Briefcase,
       title: t('services.skills.title'),
       description: t('services.skills.desc'),
-      color: 'from-orange-600 to-amber-500',
-      bgColor: 'bg-gradient-to-br from-orange-50 to-amber-50',
-      borderColor: 'border-orange-300'
+      color: '#4B0082',
+      bgColor: '#F8F8FF',
+      borderColor: '#6A5ACD'
     }
   ]
 
   return (
-    <section id="services" className="py-24 bg-gradient-to-br from-amber-50 via-orange-50 to-red-50 relative overflow-hidden">
+    <section id="services" className="py-24 bg-[#F5F5DC] relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-10 w-32 h-32 bg-amber-200/30 rounded-full blur-xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-40 h-40 bg-orange-200/30 rounded-full blur-xl animate-pulse" style={{animationDelay: '1s'}}></div>
-        <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-red-200/30 rounded-full blur-xl animate-pulse" style={{animationDelay: '2s'}}></div>
-        <div className="absolute top-1/3 right-1/3 w-20 h-20 bg-yellow-300/20 rounded-full blur-xl animate-pulse" style={{animationDelay: '0.5s'}}></div>
+        <div className="absolute top-20 left-10 w-32 h-32 bg-[#8B4513]/10 rounded-full blur-xl"></div>
+        <div className="absolute bottom-20 right-10 w-40 h-40 bg-[#D2691E]/10 rounded-full blur-xl"></div>
+        <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-[#FF6347]/10 rounded-full blur-xl"></div>
+        <div className="absolute top-1/3 right-1/3 w-20 h-20 bg-[#FFD700]/10 rounded-full blur-xl"></div>
         
         {/* Motifs géométriques africains */}
-        <div className="absolute top-32 right-20 w-24 h-24 border-4 border-amber-400/30 rounded-full opacity-60 animate-spin" style={{animationDuration: '8s'}}></div>
-        <div className="absolute bottom-32 left-20 w-32 h-32 border-4 border-orange-400/30 transform rotate-45 opacity-60 animate-pulse" style={{animationDuration: '6s', animationDelay: '1s'}}></div>
+        <div className="absolute top-32 right-20 w-24 h-24 border-4 border-[#8B4513]/20 rounded-full opacity-60"></div>
+        <div className="absolute bottom-32 left-20 w-32 h-32 border-4 border-[#D2691E]/20 transform rotate-45 opacity-60"></div>
       </div>
       
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
@@ -109,34 +109,41 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className={`group relative bg-white rounded-3xl p-6 sm:p-8 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 border-2 ${service.borderColor} hover:border-gray-300 overflow-hidden`}
+              className="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border-2 border-gray-200 hover:border-gray-300 overflow-hidden"
+              style={{ borderColor: service.borderColor }}
             >
               {/* Background Pattern */}
-              <div className={`absolute inset-0 ${service.bgColor} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
+              <div 
+                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                style={{ backgroundColor: service.bgColor }}
+              ></div>
               
               {/* Icon */}
-              <div className={`relative z-10 inline-flex p-5 rounded-2xl bg-gradient-to-r ${service.color} text-white mb-6 group-hover:scale-110 transition-all duration-300 shadow-lg`}>
-                <service.icon className="h-8 w-8" />
+              <div 
+                className="relative z-10 inline-flex p-4 rounded-xl text-white mb-6 group-hover:scale-110 transition-all duration-300 shadow-md"
+                style={{ backgroundColor: service.color }}
+              >
+                <service.icon className="h-7 w-7" />
               </div>
 
               {/* Content */}
               <div className="relative z-10">
-                <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors duration-300">
+                <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-gray-700 transition-colors duration-300">
                   {service.title}
                 </h3>
-                <p className="text-gray-600 leading-relaxed mb-6">
+                <p className="text-gray-700 leading-relaxed mb-6 text-base">
                   {service.description}
                 </p>
 
                 {/* Learn More Link */}
-                <div className="inline-flex items-center text-blue-600 font-semibold group-hover:text-blue-700 transition-colors duration-300">
+                <div 
+                  className="inline-flex items-center font-semibold group-hover:opacity-80 transition-opacity duration-300"
+                  style={{ color: service.color }}
+                >
                   <span className="mr-2">{t('services.learnMore')}</span>
                   <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
                 </div>
               </div>
-
-              {/* Hover Effect Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </motion.div>
           ))}
         </div>
@@ -157,10 +164,10 @@ export default function Services() {
           </p>
           <Link
             href="#contact"
-            className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-amber-600 to-orange-500 text-white text-lg font-bold rounded-2xl hover:from-amber-500 hover:to-orange-400 transition-all duration-300 transform hover:scale-110 shadow-2xl hover:shadow-amber-500/25 border-2 border-amber-400/50"
+            className="inline-flex items-center px-10 py-5 bg-[#FF6347] text-white text-lg font-bold rounded-2xl hover:bg-[#FF4500] transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl border-2 border-[#FFD700]"
           >
             {t('services.cta.button')}
-            <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
+            <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
           </Link>
         </motion.div>
       </div>
