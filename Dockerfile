@@ -17,6 +17,10 @@ RUN npm ci && npm cache clean --force
 # Copier le code source
 COPY . .
 
+# Définir les variables d'environnement pour le build
+ENV OPENAI_API_KEY=dummy_key_for_build
+ENV NODE_ENV=production
+
 # Construire l'application Next.js avec export statique
 RUN npm run build:static
 

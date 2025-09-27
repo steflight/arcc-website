@@ -124,6 +124,7 @@ export async function POST(request: NextRequest) {
 }
 
 export async function GET() {
+  // Désactiver le pré-rendu pour cette route API
   return NextResponse.json({
     status: 'ok',
     message: 'API Chat ARCC - Assistant communautaire',
@@ -135,3 +136,6 @@ export async function GET() {
     ]
   })
 }
+
+// Désactiver le pré-rendu statique pour cette route
+export const dynamic = 'force-dynamic'
