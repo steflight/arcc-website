@@ -38,7 +38,7 @@ export default function Contact() {
       icon: Mail,
       title: 'Email',
       content: t('contact.info.email'),
-      link: 'mailto:contact@kladriva.ca'
+      link: 'mailto:contact@ARCC.ca'
     },
     {
       icon: Phone,

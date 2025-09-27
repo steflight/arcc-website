@@ -1,4 +1,4 @@
-# Optimisations de performance et sécurité pour Kladriva
+# Optimisations de performance et sécurité pour ARCC
 # Compression GZIP
 <IfModule mod_deflate.c>
     AddOutputFilterByType DEFLATE text/plain

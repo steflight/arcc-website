@@ -8,7 +8,7 @@ export default function FounderMessage() {
   const { t } = useLanguage()
   
   const founderData = {
-    name: "Mr. Leonidas Ledoux",
+    name: "M. Leonidas Ledoux",
     title: "Fondateur d'ARCC",
     image: "/leo.jpg",
     quote: "L'ARCC est née d'un rêve simple : créer un foyer pour tous les Camerounais au Canada. Un endroit où nous pouvons nous soutenir, grandir ensemble et préserver notre héritage tout en embrassant notre nouvelle patrie.",
@@ -28,13 +28,11 @@ Merci de faire partie de cette belle aventure. Merci de croire en notre vision. 
 
 Avec toute ma gratitude et ma solidarité,
 
-Dr. Marie Nguema
+M. Leonidas Ledoux
 Fondatrice et Présidente d'ARCC`,
     achievements: [
-      "15+ ans d'expérience en médecine au Canada",
-      "Fondatrice de 3 organisations communautaires",
-      "Mentor de plus de 200 nouveaux arrivants",
-      "Prix d'excellence communautaire 2023"
+      "Artiste et Compositeur",
+      "Manager Evenementiel",
     ]
   }
 

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Kladriva Website Docker Deployment Script
+# ARCC Website Docker Deployment Script
 # Usage: ./deploy-docker.sh [environment] [options]
 
 set -e

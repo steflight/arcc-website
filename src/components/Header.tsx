@@ -88,12 +88,23 @@ export default function Header() {
               )}
             </div>
 
-            {/* CTA Button */}
+            {/* CTA Button - Arrêt plan visuel */}
             <Link
               href="/#contact"
-              className="bg-gradient-to-r from-green-600 to-yellow-500 text-white px-6 py-3 rounded-2xl text-sm font-bold hover:from-green-500 hover:to-yellow-400 transition-all duration-300 hover:shadow-lg hover:scale-105 border border-green-400/50"
+              className="group relative overflow-hidden px-8 py-4 rounded-2xl text-sm font-bold text-white transition-all duration-300 hover:scale-110 hover:shadow-2xl border-2 border-white/30 shadow-xl"
+              style={{ 
+                background: 'linear-gradient(135deg, #ff700a 0%, #ff8c00 50%, #ffa500 100%)',
+                boxShadow: '0 10px 30px rgba(255, 112, 10, 0.5), 0 0 0 2px rgba(255, 255, 255, 0.2)'
+              }}
             >
-              {t('header.joinUs')}
+              {/* Effet de brillance au survol */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+              
+              {/* Contenu du bouton */}
+              <span className="relative z-10 flex items-center space-x-2">
+                <span>{t('header.joinUs')}</span>
+                <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+              </span>
             </Link>
           </div>
 
@@ -129,10 +140,21 @@ export default function Header() {
               <div className="pt-4 border-t border-gray-200">
                 <Link
                   href="#contact"
-                  className="bg-gradient-to-r from-green-600 to-yellow-500 text-white block px-3 py-2 rounded-2xl text-base font-bold hover:from-green-500 hover:to-yellow-400 transition-all duration-300"
+                  className="group relative overflow-hidden block px-6 py-4 rounded-2xl text-base font-bold text-white transition-all duration-300 hover:scale-110 hover:shadow-2xl border-2 border-white/30 shadow-xl"
+                  style={{ 
+                    background: 'linear-gradient(135deg, #ff700a 0%, #ff8c00 50%, #ffa500 100%)',
+                    boxShadow: '0 10px 30px rgba(255, 112, 10, 0.5), 0 0 0 2px rgba(255, 255, 255, 0.2)'
+                  }}
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  {t('header.joinUs')}
+                  {/* Effet de brillance au survol */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+                  
+                  {/* Contenu du bouton */}
+                  <span className="relative z-10 flex items-center justify-center space-x-2">
+                    <span>{t('header.joinUs')}</span>
+                    <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+                  </span>
                 </Link>
               </div>
             </div>

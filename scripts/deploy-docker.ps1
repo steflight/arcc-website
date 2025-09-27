@@ -1,4 +1,4 @@
-# Kladriva Website Docker Deployment Script
+# ARCC Website Docker Deployment Script
 # Usage: .\deploy-docker.ps1
 
 param(
@@ -10,7 +10,7 @@ param(
     [string]$ContainerName = "arcc-website"
 )
 
-Write-Host "🐳 Starting Kladriva Website Docker Deployment..." -ForegroundColor Green
+Write-Host "🐳 Starting ARCC Website Docker Deployment..." -ForegroundColor Green
 
 # Fonction pour vérifier si Docker est installé
 function Test-Docker {

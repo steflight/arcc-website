@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://kladriva.ca/sitemap.xml
+Sitemap: https://ARCC.ca/sitemap.xml
 
 # Crawl-delay pour éviter de surcharger le serveur
 Crawl-delay: 1

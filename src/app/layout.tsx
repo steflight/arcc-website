@@ -16,12 +16,12 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Kladriva - Solutions IA, Mentoring et Consulting pour Accélérer Votre Croissance",
-    template: "%s | Kladriva"
+    default: "ARCC - Solutions IA, Mentoring et Consulting pour Accélérer Votre Croissance",
+    template: "%s | ARCC"
   },
-  description: "Kladriva vous aide à transformer l'IA en résultats mesurables en semaines, pas en mois. Consulting IA, mentoring et solutions sur mesure pour PME et startups.",
+  description: "ARCC vous aide à transformer l'IA en résultats mesurables en semaines, pas en mois. Consulting IA, mentoring et solutions sur mesure pour PME et startups.",
   keywords: [
-    "Kladriva",
+    "ARCC",
     "IA",
     "Intelligence Artificielle",
     "Consulting IA",
@@ -35,15 +35,15 @@ export const metadata: Metadata = {
     "Montréal",
     "Canada"
   ],
-  authors: [{ name: "Kladriva Team" }],
-  creator: "Kladriva",
-  publisher: "Kladriva",
+  authors: [{ name: "ARCC Team" }],
+  creator: "ARCC",
+  publisher: "ARCC",
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://kladriva.ca'),
+  metadataBase: new URL('https://ARCC.ca'),
   alternates: {
     canonical: '/',
     languages: {
@@ -54,25 +54,25 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'fr_CA',
-    url: 'https://kladriva.ca',
-    siteName: 'Kladriva',
-    title: 'Kladriva - Solutions IA, Mentoring et Consulting pour Accélérer Votre Croissance',
+    url: 'https://ARCC.ca',
+    siteName: 'ARCC',
+    title: 'ARCC - Solutions IA, Mentoring et Consulting pour Accélérer Votre Croissance',
     description: 'Transformez l\'IA en résultats mesurables en semaines, pas en mois. Consulting IA, mentoring et solutions sur mesure.',
     images: [
       {
         url: '/logo.png',
         width: 1200,
         height: 630,
-        alt: 'Kladriva - Solutions IA et Consulting',
+        alt: 'ARCC - Solutions IA et Consulting',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Kladriva - Solutions IA, Mentoring et Consulting',
+    title: 'ARCC - Solutions IA, Mentoring et Consulting',
     description: 'Transformez l\'IA en résultats mesurables en semaines, pas en mois.',
     images: ['/logo.png'],
-    creator: '@kladriva',
+    creator: '@ARCC',
   },
   robots: {
     index: true,

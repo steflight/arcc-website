@@ -17,17 +17,17 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   
   if (!post) {
     return {
-      title: 'Article non trouvé | Kladriva Blog',
+      title: 'Article non trouvé | ARCC Blog',
       description: 'L\'article demandé n\'existe pas ou a été supprimé.',
     }
   }
 
   return {
-    title: `${post.title} | Kladriva Blog`,
+    title: `${post.title} | ARCC Blog`,
     description: post.excerpt,
     keywords: [
       ...post.tags,
-      'Kladriva',
+      'ARCC',
       'IA',
       'Blog',
       'Consulting',

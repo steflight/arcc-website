@@ -324,7 +324,7 @@ export default function Chatbot() {
                     transition={{ duration: 0.3, ease: 'easeInOut' }}
                     className="overflow-hidden"
                   >
-                    <div className="px-4 pb-4 space-y-2">
+                    <div className="px-4 pb-4 space-y-2 max-h-48 overflow-y-auto scrollbar-thin scrollbar-thumb-[#8B4513]/30 scrollbar-track-transparent">
                       {quickActions.map((action, index) => (
                         <button
                           key={index}

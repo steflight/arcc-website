@@ -7,7 +7,7 @@ import BlogCategories from '@/components/BlogCategories'
 import BlogTags from '@/components/BlogTags'
 
 export const metadata: Metadata = {
-  title: 'Blog & Insights IA | Kladriva',
+  title: 'Blog & Insights IA | ARCC',
   description: 'Découvrez les dernières insights sur la transformation IA, les histoires de succès en mentoring et les stratégies de croissance business. Analyse experte et conseils pratiques.',
   keywords: [
     'Blog IA',
@@ -18,25 +18,25 @@ export const metadata: Metadata = {
     'Transformation digitale',
     'Stratégies IA',
     'Consulting IA',
-    'Kladriva'
+    'ARCC'
   ],
   openGraph: {
-    title: 'Blog & Insights IA | Kladriva',
+    title: 'Blog & Insights IA | ARCC',
     description: 'Découvrez les dernières insights sur la transformation IA, les histoires de succès en mentoring et les stratégies de croissance business.',
     type: 'website',
-    url: 'https://kladriva.ca/blog',
+    url: 'https://ARCC.ca/blog',
     images: [
       {
         url: '/logo.png',
         width: 1200,
         height: 630,
-        alt: 'Blog Kladriva - Insights IA',
+        alt: 'Blog ARCC - Insights IA',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Blog & Insights IA | Kladriva',
+    title: 'Blog & Insights IA | ARCC',
     description: 'Découvrez les dernières insights sur la transformation IA et la croissance business.',
     images: ['/logo.png'],
   },

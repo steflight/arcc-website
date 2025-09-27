@@ -1,7 +1,7 @@
-# 🚀 Kladriva Website Deployment Guide
+# 🚀 ARCC Website Deployment Guide
 
 ## Overview
-This guide covers deploying your Kladriva website to Web Hosting Canada shared hosting using various CI/CD approaches.
+This guide covers deploying your ARCC website to Web Hosting Canada shared hosting using various CI/CD approaches.
 
 ## 🎯 Deployment Options
 

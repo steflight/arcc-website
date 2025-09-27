@@ -6,7 +6,7 @@
 
   <!-- Page d'accueil -->
   <url>
-    <loc>https://kladriva.ca/</loc>
+    <loc>https://ARCC.ca/</loc>
     <lastmod>2024-08-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -14,7 +14,7 @@
 
   <!-- Page Blog -->
   <url>
-    <loc>https://kladriva.ca/blog</loc>
+    <loc>https://ARCC.ca/blog</loc>
     <lastmod>2024-08-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
@@ -22,14 +22,14 @@
 
   <!-- Articles de blog -->
   <url>
-    <loc>https://kladriva.ca/blog/ai-transformation-guide-2024</loc>
+    <loc>https://ARCC.ca/blog/ai-transformation-guide-2024</loc>
     <lastmod>2024-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://kladriva.ca/blog/mentoring-success-stories</loc>
+    <loc>https://ARCC.ca/blog/mentoring-success-stories</loc>
     <lastmod>2024-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -37,28 +37,28 @@
 
   <!-- Sections de la page d'accueil (pour le SEO local) -->
   <url>
-    <loc>https://kladriva.ca/#activities</loc>
+    <loc>https://ARCC.ca/#activities</loc>
     <lastmod>2024-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://kladriva.ca/#values</loc>
+    <loc>https://ARCC.ca/#values</loc>
     <lastmod>2024-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://kladriva.ca/#about</loc>
+    <loc>https://ARCC.ca/#about</loc>
     <lastmod>2024-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://kladriva.ca/#contact</loc>
+    <loc>https://ARCC.ca/#contact</loc>
     <lastmod>2024-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>

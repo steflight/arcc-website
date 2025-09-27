@@ -97,11 +97,13 @@ export default function Services() {
           className="text-center mb-20"
         >
           <h2 
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-8"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8"
+            style={{ color: '#1a1a2e' }}
             dangerouslySetInnerHTML={{ __html: t('services.title') }}
           />
           <p 
-            className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed"
+            className="text-xl max-w-4xl mx-auto leading-relaxed"
+            style={{ color: '#2F1B14' }}
             dangerouslySetInnerHTML={{ __html: t('services.subtitle') }}
           />
         </motion.div>

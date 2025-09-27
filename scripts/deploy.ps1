@@ -1,4 +1,4 @@
-# Kladriva Website Deployment Script
+# ARCC Website Deployment Script
 # Usage: .\deploy.ps1
 
 param(
@@ -8,7 +8,7 @@ param(
     [string]$RemotePath = "/public_html/"
 )
 
-Write-Host "🚀 Starting Kladriva Website Deployment..." -ForegroundColor Green
+Write-Host "🚀 Starting ARCC Website Deployment..." -ForegroundColor Green
 
 # Check if required parameters are provided
 if (-not $FtpServer -or -not $FtpUsername -or -not $FtpPassword) {
