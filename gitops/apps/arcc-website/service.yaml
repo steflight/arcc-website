@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: arcc-website-service
+  namespace: arcc-website
+  labels:
+    app: arcc-website
+    managed-by: flux
+  annotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/port: "80"
+spec:
+  selector:
+    app: arcc-website
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 80
+  type: ClusterIP

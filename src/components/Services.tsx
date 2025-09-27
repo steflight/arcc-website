@@ -23,47 +23,53 @@ export default function Services() {
       description: t('services.settlement.desc'),
       color: '#8B4513',
       bgColor: '#F5F5DC',
-      borderColor: '#D2691E'
+      borderColor: '#D2691E',
+      textColor: '#2F1B14'
     },
     {
       icon: Scale,
       title: t('services.legal.title'),
       description: t('services.legal.desc'),
-      color: '#DC143C',
+      color: '#8B4513',
       bgColor: '#FFF8DC',
-      borderColor: '#B22222'
+      borderColor: '#D2691E',
+      textColor: '#2F1B14'
     },
     {
       icon: Users,
       title: t('services.mentorship.title'),
       description: t('services.mentorship.desc'),
-      color: '#FFD700',
+      color: '#8B4513',
       bgColor: '#FFFACD',
-      borderColor: '#DAA520'
+      borderColor: '#D2691E',
+      textColor: '#2F1B14'
     },
     {
       icon: Network,
       title: t('services.networking.title'),
       description: t('services.networking.desc'),
-      color: '#32CD32',
+      color: '#8B4513',
       bgColor: '#F0FFF0',
-      borderColor: '#228B22'
+      borderColor: '#D2691E',
+      textColor: '#2F1B14'
     },
     {
       icon: Heart,
       title: t('services.crisis.title'),
       description: t('services.crisis.desc'),
-      color: '#FF6347',
+      color: '#8B4513',
       bgColor: '#FFF0F5',
-      borderColor: '#CD5C5C'
+      borderColor: '#D2691E',
+      textColor: '#2F1B14'
     },
     {
       icon: Briefcase,
       title: t('services.skills.title'),
       description: t('services.skills.desc'),
-      color: '#4B0082',
+      color: '#8B4513',
       bgColor: '#F8F8FF',
-      borderColor: '#6A5ACD'
+      borderColor: '#D2691E',
+      textColor: '#2F1B14'
     }
   ]
 
@@ -128,10 +134,16 @@ export default function Services() {
 
               {/* Content */}
               <div className="relative z-10">
-                <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-gray-700 transition-colors duration-300">
+                <h3 
+                  className="text-xl font-bold mb-4 group-hover:opacity-80 transition-opacity duration-300"
+                  style={{ color: service.textColor }}
+                >
                   {service.title}
                 </h3>
-                <p className="text-gray-700 leading-relaxed mb-6 text-base">
+                <p 
+                  className="leading-relaxed mb-6 text-base"
+                  style={{ color: service.textColor }}
+                >
                   {service.description}
                 </p>
 
@@ -156,15 +168,16 @@ export default function Services() {
           viewport={{ once: true }}
           className="mt-20 text-center bg-white rounded-3xl p-12 shadow-2xl border border-gray-100"
         >
-          <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+          <h3 className="text-3xl md:text-4xl font-bold mb-6" style={{ color: '#2F1B14' }}>
             {t('services.cta.title')}
           </h3>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8 leading-relaxed">
+          <p className="text-xl max-w-3xl mx-auto mb-8 leading-relaxed" style={{ color: '#2F1B14' }}>
             {t('services.cta.subtitle')}
           </p>
           <Link
             href="#contact"
-            className="inline-flex items-center px-10 py-5 bg-[#FF6347] text-white text-lg font-bold rounded-2xl hover:bg-[#FF4500] transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl border-2 border-[#FFD700]"
+            className="inline-flex items-center px-10 py-5 text-white text-lg font-bold rounded-2xl hover:opacity-90 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl border-2 border-[#FFD700]"
+            style={{ backgroundColor: '#8B4513' }}
           >
             {t('services.cta.button')}
             <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />

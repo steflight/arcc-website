@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: arcc-website-service
+  namespace: arcc-website
+  labels:
+    app: arcc-website
+spec:
+  selector:
+    app: arcc-website
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+      nodePort: 30080  # Port pour accès externe
+  type: NodePort  # Changez en LoadBalancer si vous avez un load balancer

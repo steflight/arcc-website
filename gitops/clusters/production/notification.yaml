@@ -1,0 +1,41 @@
+apiVersion: notification.toolkit.fluxcd.io/v1
+kind: Provider
+metadata:
+  name: slack
+  namespace: flux-system
+spec:
+  type: slack
+  channel: "#deployments"
+  secretRef:
+    name: slack-webhook
+  address: https://hooks.slack.com/services/YOUR/SLACK/WEBHOOK
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: slack-webhook
+  namespace: flux-system
+type: Opaque
+stringData:
+  address: https://hooks.slack.com/services/YOUR/SLACK/WEBHOOK
+---
+apiVersion: notification.toolkit.fluxcd.io/v1
+kind: Alert
+metadata:
+  name: arcc-website-alerts
+  namespace: arcc-website
+spec:
+  providerRef:
+    name: slack
+  eventSeverity: info
+  eventSources:
+  - kind: GitRepository
+    name: arcc-website-source
+  - kind: Kustomization
+    name: arcc-website
+  - kind: ImageRepository
+    name: arcc-website
+  - kind: ImagePolicy
+    name: arcc-website
+  - kind: ImageUpdateAutomation
+    name: arcc-website

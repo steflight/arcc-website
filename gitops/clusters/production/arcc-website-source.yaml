@@ -1,0 +1,38 @@
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata:
+  name: arcc-website-source
+  namespace: arcc-website
+spec:
+  interval: 5m
+  ref:
+    branch: main
+  url: https://github.com/votre-username/arcc-website
+  ignore: |
+    /*
+    !k8s/
+    !k8s/**
+---
+apiVersion: image.toolkit.fluxcd.io/v1
+kind: ImageRepository
+metadata:
+  name: arcc-website
+  namespace: arcc-website
+spec:
+  interval: 1m
+  image: ghcr.io/votre-username/arcc-website
+---
+apiVersion: image.toolkit.fluxcd.io/v1
+kind: ImagePolicy
+metadata:
+  name: arcc-website
+  namespace: arcc-website
+spec:
+  imageRepositoryRef:
+    name: arcc-website
+  policy:
+    semver:
+      range: '>=1.0.0'
+  filterTags:
+    pattern: '^(main|production)-.*'
+    extract: '$1'

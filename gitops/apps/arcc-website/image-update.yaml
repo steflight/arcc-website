@@ -1,0 +1,27 @@
+apiVersion: image.toolkit.fluxcd.io/v1
+kind: ImageUpdateAutomation
+metadata:
+  name: arcc-website
+  namespace: arcc-website
+spec:
+  interval: 1h
+  sourceRef:
+    kind: GitRepository
+    name: arcc-website-source
+  git:
+    checkout:
+      ref:
+        branch: main
+    commit:
+      author:
+        name: FluxCD Bot
+        email: fluxcd@arcc-website.local
+      messageTemplate: |
+        Update image to {{range .Images}}{{.}}{{end}}
+        
+        Automated update by FluxCD
+        Images: {{range .Images}}
+        - {{.}}{{end}}
+  update:
+    path: "./gitops/apps/arcc-website"
+    strategy: Setters

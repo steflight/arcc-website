@@ -63,7 +63,8 @@ export default function Hero() {
           >
             <Link
               href="#contact"
-              className="group bg-[#FF6347] text-white px-12 py-6 rounded-2xl text-lg font-bold hover:bg-[#FF4500] transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl border-2 border-[#FFD700]"
+              className="group text-white px-12 py-6 rounded-2xl text-lg font-bold hover:opacity-90 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl border-2 border-[#FFD700]"
+              style={{ backgroundColor: '#8B4513' }}
             >
               <span className="flex items-center">
                 {t('hero.cta.primary')}

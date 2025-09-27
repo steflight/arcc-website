@@ -1,0 +1,34 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: arcc-website
+  namespace: arcc-website
+spec:
+  interval: 10m
+  sourceRef:
+    kind: GitRepository
+    name: arcc-website-source
+  path: "./k8s"
+  prune: true
+  wait: true
+  timeout: 5m
+  healthChecks:
+  - apiVersion: apps/v1
+    kind: Deployment
+    name: arcc-website
+    namespace: arcc-website
+  postBuild:
+    substitute:
+      IMAGE_TAG: "main-$(date +%Y%m%d%H%M%S)"
+    substituteFrom:
+    - kind: ConfigMap
+      name: image-automation-config
+      optional: true
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: image-automation-config
+  namespace: arcc-website
+data:
+  IMAGE_TAG: "main-latest"

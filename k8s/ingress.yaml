@@ -1,0 +1,28 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: arcc-website-ingress
+  namespace: arcc-website
+  annotations:
+    # Configuration Traefik (inclus avec K3s)
+    traefik.ingress.kubernetes.io/router.entrypoints: web
+    traefik.ingress.kubernetes.io/router.tls: "false"
+    # Redirection HTTPS (optionnel)
+    traefik.ingress.kubernetes.io/redirect-to-https: "false"
+spec:
+  rules:
+  - host: arcc-website.local  # Changez par votre domaine
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: arcc-website-service
+            port:
+              number: 80
+  # Si vous avez un certificat TLS
+  # tls:
+  # - hosts:
+  #   - arcc-website.local
+  #   secretName: arcc-website-tls

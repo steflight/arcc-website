@@ -1,0 +1,28 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: arcc-website-ingress
+  namespace: arcc-website
+  labels:
+    app: arcc-website
+    managed-by: flux
+  annotations:
+    # Configuration Traefik (inclus avec K3s)
+    traefik.ingress.kubernetes.io/router.entrypoints: web
+    traefik.ingress.kubernetes.io/router.tls: "false"
+    # Middlewares pour la sécurité
+    traefik.ingress.kubernetes.io/router.middlewares: default-security-headers@kubernetescrd
+    # Rate limiting
+    traefik.ingress.kubernetes.io/router.middlewares: default-rate-limit@kubernetescrd
+spec:
+  rules:
+  - host: arcc-website.local
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: arcc-website-service
+            port:
+              number: 80
