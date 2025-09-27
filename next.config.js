@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Suppression de l'export statique pour permettre les API routes
-  // output: 'export', // Commenté pour permettre les API routes
+  // Configuration pour export statique (nécessaire pour Docker + Nginx)
+  output: 'export',
   trailingSlash: true,
   images: {
     unoptimized: true

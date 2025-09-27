@@ -5,10 +5,8 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
-    "build:static": "next build && next export",
     "start": "next start",
     "lint": "next lint",
-    "export": "next build && next export",
     "deploy:build": "npm run build",
     "deploy:prepare": "npm run build && echo '✅ Build ready for deployment with API support' && echo '🚀 Use: npm run start or deploy to a Node.js hosting'",
     "deploy:test": "npm run build && npm run start",
