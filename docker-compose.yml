@@ -8,13 +8,16 @@ services:
       dockerfile: Dockerfile
       target: development
     ports:
-      - "3000:3000"
+      - "3020:3000"
     volumes:
       - .:/app
       - /app/node_modules
       - /app/.next
     environment:
       - NODE_ENV=development
+    networks:
+      - default
+      - nginx-proxy-manager_default
     profiles:
       - dev
 
@@ -24,11 +27,13 @@ services:
       context: .
       dockerfile: Dockerfile
       target: production
-    ports:
-      - "80:80"
     environment:
       - NODE_ENV=production
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
     restart: unless-stopped
+    networks:
+      - default
+      - nginx-proxy-manager_default
     profiles:
       - prod
 
@@ -44,7 +49,9 @@ services:
     profiles:
       - build
 
-# Réseau par défaut
+# Réseaux
 networks:
   default:
     name: arcc-website-network
+  nginx-proxy-manager_default:
+    external: true

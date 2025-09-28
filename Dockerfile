@@ -24,8 +24,8 @@ ENV NODE_ENV=production
 # Construire l'application Next.js avec export statique
 RUN npm run build
 
-# Stage 2: Serveur web optimisé pour K3s
-FROM nginx:1.25-alpine AS production
+# Stage 2: Serveur Node.js optimisé pour production
+FROM node:18-alpine AS production
 
 # Créer un utilisateur non-root pour la sécurité
 RUN addgroup -g 1001 -S nodejs && \
@@ -34,34 +34,23 @@ RUN addgroup -g 1001 -S nodejs && \
 # Installer les outils de monitoring
 RUN apk add --no-cache curl
 
-# Copier les fichiers statiques générés
-COPY --from=builder /app/out /usr/share/nginx/html
+# Copier les fichiers de production générés
+COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+COPY --from=builder --chown=nextjs:nodejs /app/public ./public
 
-# S'assurer que les permissions sont correctes
-RUN chown -R nextjs:nodejs /usr/share/nginx/html && \
-    chown -R nextjs:nodejs /var/cache/nginx && \
-    chown -R nextjs:nodejs /var/log/nginx && \
-    chown -R nextjs:nodejs /etc/nginx/conf.d
+# Exposer le port 3000 (port interne de Next.js)
+EXPOSE 3000
 
-# Créer les répertoires nécessaires
-RUN touch /var/run/nginx.pid && \
-    chown -R nextjs:nodejs /var/run/nginx.pid
-
-# Configuration Nginx sera injectée via ConfigMap dans K3s
-# COPY nginx.conf /etc/nginx/nginx.conf
-
-# Exposer le port 80
-EXPOSE 80
-
-# Health check pour K3s
+# Health check
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-    CMD curl -f http://localhost/ || exit 1
+    CMD curl -f http://localhost:3000/api/chat || exit 1
 
 # Utiliser l'utilisateur non-root
 USER nextjs
 
-# Démarrer Nginx
-CMD ["nginx", "-g", "daemon off;"]
+# Démarrer l'application Next.js
+CMD ["node", "server.js"]
 
 # Stage 3: Image de développement (optionnel)
 FROM node:18-alpine AS development
