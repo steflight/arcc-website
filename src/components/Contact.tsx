@@ -19,7 +19,7 @@ export default function Contact() {
     e.preventDefault()
     console.log('Form submitted:', formData)
     setIsSubmitted(true)
-    
+
     setTimeout(() => {
       setIsSubmitted(false)
       setFormData({ name: '', email: '', company: '', message: '' })
@@ -55,34 +55,34 @@ export default function Contact() {
   ]
 
   return (
-    <section id="contact" className="py-24 bg-gradient-to-br from-gray-50 to-blue-50">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+    <section id="contact" className="py-12 sm:py-16 lg:py-24 bg-gradient-to-br from-gray-50 to-blue-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-12 lg:mb-16"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 px-4">
             {t('contact.title')}
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto px-4">
             {t('contact.subtitle')}
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16">
           {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="bg-white rounded-2xl p-6 sm:p-8 shadow-xl border border-gray-100"
+            className="bg-white rounded-xl sm:rounded-2xl p-5 sm:p-6 lg:p-8 shadow-xl border border-gray-100"
           >
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">
+            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">
               {t('contact.form.title')}
             </h3>
 
@@ -182,19 +182,19 @@ export default function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="space-y-8"
+            className="space-y-6 sm:space-y-8"
           >
             <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">
                 {t('contact.info.title')}
               </h3>
-              <p className="text-lg text-gray-600 mb-8">
+              <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8">
                 {t('contact.info.subtitle')}
               </p>
             </div>
 
             {/* Contact Details */}
-            <div className="space-y-6">
+            <div className="space-y-4 sm:space-y-6">
               {contactInfo.map((info, index) => (
                 <motion.a
                   key={info.title}
@@ -203,14 +203,14 @@ export default function Contact() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="flex items-center space-x-4 p-6 bg-white rounded-xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                  className="flex items-center space-x-3 sm:space-x-4 p-4 sm:p-6 bg-white rounded-lg sm:rounded-xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
                 >
-                  <div className="p-3 bg-blue-100 rounded-lg text-blue-600">
-                    <info.icon className="h-6 w-6" />
+                  <div className="p-2 sm:p-3 bg-blue-100 rounded-lg text-blue-600 flex-shrink-0">
+                    <info.icon className="h-5 w-5 sm:h-6 sm:w-6" />
                   </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900">{info.title}</h4>
-                    <p className="text-gray-600">{info.content}</p>
+                  <div className="min-w-0 flex-1">
+                    <h4 className="font-semibold text-gray-900 text-sm sm:text-base">{info.title}</h4>
+                    <p className="text-gray-600 text-sm sm:text-base break-words">{info.content}</p>
                   </div>
                 </motion.a>
               ))}
@@ -222,15 +222,15 @@ export default function Contact() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
               viewport={{ once: true }}
-              className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white"
+              className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl sm:rounded-2xl p-5 sm:p-6 lg:p-8 text-white"
             >
-              <h4 className="text-xl font-bold mb-4">
+              <h4 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">
                 {t('contact.response.title')}
               </h4>
-              <p className="text-blue-100 mb-4">
+              <p className="text-blue-100 mb-3 sm:mb-4 text-sm sm:text-base">
                 {t('contact.response.subtitle')}
               </p>
-              <div className="text-sm text-blue-200">
+              <div className="text-xs sm:text-sm text-blue-200 space-y-1">
                 <p>{t('contact.response.hours')}</p>
                 <p>{t('contact.response.emergency')}</p>
               </div>
