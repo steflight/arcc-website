@@ -10,17 +10,17 @@ import SkillsDirectory from '@/components/SkillsDirectory'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
 import Chatbot from '@/components/Chatbot'
-import AnniversaryCelebration from '@/components/AnniversaryCelebration'
+import ChristmasCelebration from '@/components/ChristmasCelebration'
 
 export default function Home() {
-  const [showAnniversary, setShowAnniversary] = useState(false)
+  const [showChristmas, setShowChristmas] = useState(false)
 
   useEffect(() => {
-    // Afficher l'anniversaire à chaque ouverture du site
+    // Afficher le popup de Noël à chaque ouverture du site
     const timer = setTimeout(() => {
-      setShowAnniversary(true)
+      setShowChristmas(true)
     }, 2000)
-    
+
     return () => clearTimeout(timer)
   }, [])
 
@@ -35,9 +35,9 @@ export default function Home() {
       <Contact />
       <Footer />
       <Chatbot />
-      <AnniversaryCelebration 
-        isVisible={showAnniversary} 
-        onClose={() => setShowAnniversary(false)} 
+      <ChristmasCelebration
+        isVisible={showChristmas}
+        onClose={() => setShowChristmas(false)}
       />
     </main>
   )
