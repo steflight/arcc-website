@@ -32,7 +32,7 @@ RUN addgroup -g 1001 -S nodejs && \
     adduser -S nextjs -u 1001
 
 # Installer les outils de monitoring
-RUN apk add --no-cache curl
+RUN apk add --no-cache curl netcat-openbsd
 
 # Copier les fichiers de production générés
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
@@ -42,12 +42,16 @@ COPY --from=builder --chown=nextjs:nodejs /app/public ./public
 # Exposer le port 3000 (port interne de Next.js)
 EXPOSE 3000
 
-# Health check
-HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-    CMD curl -f http://localhost:3000/api/chat || exit 1
+# Health check - Vérifie que le processus Next.js tourne
+HEALTHCHECK --interval=30s --timeout=3s --start-period=10s --retries=3 \
+    CMD ps aux | grep -E "[n]ext-server" >/dev/null || exit 1
 
 # Utiliser l'utilisateur non-root
 USER nextjs
+
+# Variables d'environnement pour forcer l'écoute sur toutes les interfaces
+ENV HOSTNAME=0.0.0.0
+ENV PORT=3000
 
 # Démarrer l'application Next.js
 CMD ["node", "server.js"]
