@@ -1,0 +1,28 @@
+Crée un composant React/Next.js `ChristmasCelebration.tsx` pour un popup de célébration de Noël qui s'affiche à l'ouverture de la page.
+
+REQUIREMENTS:
+1. Composant avec props: `isVisible: boolean` et `onClose: () => void`
+2. Animation de 100-150 flocons de neige (❄) qui tombent avec rotation et mouvement latéral (Framer Motion)
+3. Modal centré avec:
+   - Fond semi-transparent avec backdrop blur
+   - Dégradé from-red-50 via-white to-green-50
+   - Bordure border-4 border-red-500
+   - Icônes animées: Snowflake (bleu), Gift (rouge), Star (jaune) de Lucide React
+4. Contenu:
+   - Titre: "🎄 Joyeux Noël ! 🎄" avec dégradé texte rouge-vert
+   - Message personnalisable pour l'organisation
+   - Bouton avec dégradé rouge-vert: "Passez de Joyeuses Fêtes ! 🎁"
+   - Décoration: emojis 🎅 🦌 ⭐ ❄️ positionnés autour
+5. Animations:
+   - Apparition: scale 0.8→1 + fade (spring animation)
+   - Flocons: durée 8-13s, rotation 360°, mouvement latéral
+   - Icônes: rotation et scale animés en boucle
+6. Technique:
+   - TypeScript
+   - 'use client' pour Next.js App Router
+   - AnimatePresence pour transitions
+   - Responsive (mobile/tablette/desktop)
+   - Bouton X en haut à droite pour fermer
+
+Le composant doit être réutilisable et facilement personnalisable pour d'autres projets.
+
