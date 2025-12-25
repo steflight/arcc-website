@@ -806,7 +806,7 @@ docker build --no-cache -t arcc-website .
 ### Informations ARCC
 
 - **Site web** : [URL du site]
-- **Email** : info@arcc-canada.ca
+- **Email** : info@camercanada.com
 - **Téléphone** : +1 (514) 555-0123
 
 ---

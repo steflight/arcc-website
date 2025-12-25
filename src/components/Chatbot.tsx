@@ -33,7 +33,7 @@ export default function Chatbot() {
     {
       text: "Besoin d'aide pour l'établissement",
       icon: MapPin,
-      response: "Pour vous aider avec l'établissement, veuillez saisir votre numéro de téléphone et nous vous contacterons dans les 24h. Vous pouvez aussi nous écrire directement au +1 (514) 555-0123 ou par email à info@arcc-canada.ca"
+      response: "Pour vous aider avec l'établissement, veuillez saisir votre numéro de téléphone et nous vous contacterons dans les 24h. Vous pouvez aussi nous écrire directement au +1 (514) 555-0123 ou par email à info@camercanada.com"
     },
     {
       text: "Support juridique",

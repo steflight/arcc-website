@@ -69,7 +69,7 @@ export default function Footer() {
               <div className="space-y-2 sm:space-y-3">
                 <div className="flex items-center space-x-2 sm:space-x-3 text-gray-300 text-sm sm:text-base">
                   <Mail className="h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0" />
-                  <span className="break-all">info@arcc-canada.ca</span>
+                  <span className="break-all">info@camercanada.com</span>
                 </div>
                 <div className="flex items-center space-x-2 sm:space-x-3 text-gray-300 text-sm sm:text-base">
                   <Phone className="h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0" />

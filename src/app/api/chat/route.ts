@@ -90,7 +90,7 @@ EXEMPLES DE RÉPONSES:
 
 CONTACTS ARCC:
 - Téléphone: +1 (514) 555-0123
-- Email: info@arcc-canada.ca
+- Email: info@camercanada.com
 - Urgences juridiques: +1 (514) 555-0124
 
 RESTE TOUJOURS CHALEUREUX, ENCOURAGEANT ET ORIENTÉ SOLUTION ! RÉPONDS UNIQUEMENT EN FRANÇAIS.`,
@@ -135,7 +135,7 @@ EXAMPLE RESPONSES:
 
 ARCC CONTACTS:
 - Phone: +1 (514) 555-0123
-- Email: info@arcc-canada.ca
+- Email: info@camercanada.com
 - Legal emergencies: +1 (514) 555-0124
 
 ALWAYS STAY WARM, ENCOURAGING AND SOLUTION-ORIENTED! RESPOND ONLY IN ENGLISH.`
@@ -225,7 +225,7 @@ export async function POST(request: NextRequest) {
         category: 'ARCC Support',
         contact: {
           phone: '+1 (514) 555-0123',
-          email: 'info@arcc-canada.ca',
+          email: 'info@camercanada.com',
           emergency: '+1 (514) 555-0124'
         }
       }

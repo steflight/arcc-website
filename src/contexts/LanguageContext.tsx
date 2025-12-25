@@ -22,7 +22,7 @@ const translations = {
     'nav.directory': 'Skills Directory',
     'nav.contact': 'Contact',
     'header.joinUs': 'Join ARCC',
-    
+
     // Hero
     'hero.badge': 'Cameroonian Community in Canada',
     'hero.headline': 'United <span style="color: #ffb224; font-weight: 600;">We Stand</span>, Together <span style="color: #ffb224; font-weight: 600;">We Thrive</span>.',
@@ -38,7 +38,7 @@ const translations = {
     'hero.banner.option3.subtitle': 'We guide newcomers through settlement, provide mentorship, and create opportunities for professional and personal growth.',
     'hero.banner.option4.headline': 'Building Bridges, Creating Opportunities.',
     'hero.banner.option4.subtitle': 'ARCC connects Cameroonians with expertise, resources, and opportunities to overcome challenges and achieve their Canadian dreams.',
-    
+
     // Services
     'services.title': 'Our <span class="color-transition-1 font-semibold">Core Services</span>',
     'services.subtitle': 'How we <span class="color-transition-2 font-semibold">support</span> and <span class="color-transition-3 font-semibold">empower</span> our community.',
@@ -58,7 +58,7 @@ const translations = {
     'services.cta.title': 'Need Support? We\'re Here to Help',
     'services.cta.subtitle': 'Whether you\'re new to Canada or facing challenges, our community is ready to support you.',
     'services.cta.button': 'Get Support Now',
-    
+
     // Core Values
     'values.title': 'Our Core Values',
     'values.subtitle': 'These principles guide every decision and every relationship. They are the foundation of our community and the promise we make to each other.',
@@ -76,7 +76,7 @@ const translations = {
     'values.global.desc': 'We are committed to serving our community with dedication, compassion, and professionalism.',
     'values.quote': 'Our values are not just words—they are the living principles that guide our daily actions and define our commitment to building a stronger Cameroonian community in Canada.',
     'values.attribution': 'ARCC Community',
-    
+
     // About
     'about.title': 'About ARCC',
     'about.subtitle': 'We are a community-driven organization dedicated to supporting Cameroonians in Canada.',
@@ -95,7 +95,7 @@ const translations = {
     'about.vision.desc': 'To create a thriving, united Cameroonian community in Canada where every member can achieve their full potential.',
     'about.mission.title': 'Our Mission',
     'about.mission.desc': 'To provide comprehensive support, guidance, and resources to Cameroonians in Canada, fostering unity, success, and cultural pride.',
-    
+
     // Contact
     'contact.title': 'Get In Touch',
     'contact.subtitle': 'Need support or want to join our community? We\'re here to help and welcome you with open arms.',
@@ -113,14 +113,14 @@ const translations = {
     'contact.form.success.message': 'Your request has been received. We will respond within 24 hours to provide the support you need.',
     'contact.info.title': 'Contact Information',
     'contact.info.subtitle': 'We are here to support you. Reach out to us and our community will be happy to help.',
-    'contact.info.email': 'info@arcc-canada.ca',
+    'contact.info.email': 'info@camercanada.com',
     'contact.info.phone': '+1 (514) 555-0123',
     'contact.info.office': 'Montreal, Quebec, Canada',
     'contact.response.title': 'Response Time',
     'contact.response.subtitle': 'We respond to all requests within 24 hours.',
     'contact.response.hours': 'Hours: Monday - Friday, 9:00 AM - 6:00 PM EST',
     'contact.response.emergency': 'Emergency support: Available 24/7 for urgent situations',
-    
+
     // Footer
     'footer.company.description': 'We unite Cameroonians in Canada through community support, mentorship, and shared resources to help everyone thrive.',
     'footer.links.company': 'Organization',
@@ -143,7 +143,7 @@ const translations = {
     'nav.directory': 'Répertoire des Compétences',
     'nav.contact': 'Contact',
     'header.joinUs': 'Rejoindre ARCC',
-    
+
     // Hero
     'hero.badge': 'Communauté Camerounaise au Canada',
     'hero.headline': 'Unis <span style="color: #ffb224; font-weight: 600;">Nous Sommes</span> Plus Forts, Ensemble Nous <span style="color: #ffb224; font-weight: 600;">Réussissons</span>.',
@@ -159,7 +159,7 @@ const translations = {
     'hero.banner.option3.subtitle': 'Nous guidons les nouveaux arrivants dans leur établissement, offrons du mentorat et créons des opportunités de croissance professionnelle et personnelle.',
     'hero.banner.option4.headline': 'Construire des Ponts, Créer des Opportunités.',
     'hero.banner.option4.subtitle': 'ARCC connecte les Camerounais avec l\'expertise, les ressources et les opportunités pour surmonter les défis et réaliser leurs rêves canadiens.',
-    
+
     // Services
     'services.title': 'Nos <span class="color-transition-1 font-semibold">Services Principaux</span>',
     'services.subtitle': 'Comment nous <span class="color-transition-2 font-semibold">soutenons</span> et <span class="color-transition-3 font-semibold">autonomisons</span> notre communauté.',
@@ -179,7 +179,7 @@ const translations = {
     'services.cta.title': 'Besoin d\'Aide ? Nous Sommes Là',
     'services.cta.subtitle': 'Que vous soyez nouveau au Canada ou que vous fassiez face à des défis, notre communauté est prête à vous soutenir.',
     'services.cta.button': 'Obtenir de l\'Aide',
-    
+
     // Core Values
     'values.title': 'Nos Valeurs Fondamentales',
     'values.subtitle': 'Ces principes guident chaque décision et chaque relation. Ils sont le fondement de notre communauté et la promesse que nous nous faisons mutuellement.',
@@ -197,7 +197,7 @@ const translations = {
     'values.global.desc': 'Nous nous engageons à servir notre communauté avec dévouement, compassion et professionnalisme.',
     'values.quote': 'Nos valeurs ne sont pas que des mots—ce sont les principes vivants qui guident nos actions quotidiennes et définissent notre engagement à construire une communauté camerounaise plus forte au Canada.',
     'values.attribution': 'Communauté ARCC',
-    
+
     // About
     'about.title': 'À Propos d\'ARCC',
     'about.subtitle': 'Nous sommes une organisation communautaire dédiée à soutenir les Camerounais au Canada.',
@@ -216,7 +216,7 @@ const translations = {
     'about.vision.desc': 'Créer une communauté camerounaise prospère et unie au Canada où chaque membre peut atteindre son plein potentiel.',
     'about.mission.title': 'Notre Mission',
     'about.mission.desc': 'Fournir un soutien complet, une orientation et des ressources aux Camerounais au Canada, favorisant l\'unité, le succès et la fierté culturelle.',
-    
+
     // Contact
     'contact.title': 'Contactez-Nous',
     'contact.subtitle': 'Besoin de soutien ou envie de rejoindre notre communauté ? Nous sommes là pour vous aider et vous accueillir à bras ouverts.',
@@ -234,14 +234,14 @@ const translations = {
     'contact.form.success.message': 'Votre demande a été reçue. Nous vous répondrons dans les 24 heures pour vous fournir le soutien dont vous avez besoin.',
     'contact.info.title': 'Informations de Contact',
     'contact.info.subtitle': 'Nous sommes là pour vous soutenir. Contactez-nous et notre communauté sera ravie de vous aider.',
-    'contact.info.email': 'info@arcc-canada.ca',
+    'contact.info.email': 'info@camercanada.com',
     'contact.info.phone': '+1 (514) 555-0123',
     'contact.info.office': 'Montréal, Québec, Canada',
     'contact.response.title': 'Temps de Réponse',
     'contact.response.subtitle': 'Nous répondons à toutes les demandes dans les 24 heures.',
     'contact.response.hours': 'Heures : Lundi - Vendredi, 9h00 - 18h00 HNE',
     'contact.response.emergency': 'Soutien d\'urgence : Disponible 24h/24 pour les situations urgentes',
-    
+
     // Footer
     'footer.company.description': 'Nous unissons les Camerounais au Canada par le soutien communautaire, le mentorat et les ressources partagées pour aider tout le monde à s\'épanouir.',
     'footer.links.company': 'Organisation',
@@ -259,7 +259,7 @@ const translations = {
 }
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguage] = useState<Language>('en')
+  const [language, setLanguage] = useState<Language>('fr')
 
   // Load language preference from localStorage on mount
   useEffect(() => {
