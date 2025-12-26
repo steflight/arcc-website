@@ -61,3 +61,7 @@ Ajoute le composant ChristmasCelebration dans la page principale :
 
 
 
+
+
+
+
