@@ -170,3 +170,5 @@ export default function ChristmasCelebration({ isVisible, onClose }: ChristmasCe
   )
 }
 
+
+

@@ -156,3 +156,5 @@ src/
 
 **Note** : Ce prompt peut être adapté pour d'autres occasions (Nouvel An, Pâques, etc.) en modifiant les couleurs, emojis et messages.
 
+
+

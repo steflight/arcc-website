@@ -59,3 +59,5 @@ Ajoute le composant ChristmasCelebration dans la page principale :
 - Import et utilisation du composant
 ```
 
+
+
