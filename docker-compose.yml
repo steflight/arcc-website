@@ -55,5 +55,6 @@ services:
 networks:
   default:
     name: arcc-website-network
+    driver: bridge
   nginx-proxy-manager_default:
     external: true
