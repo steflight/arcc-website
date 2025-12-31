@@ -10,15 +10,15 @@ import SkillsDirectory from '@/components/SkillsDirectory'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
 import Chatbot from '@/components/Chatbot'
-import ChristmasCelebration from '@/components/ChristmasCelebration'
+import NewYearCelebration from '@/components/NewYearCelebration'
 
 export default function Home() {
-  const [showChristmas, setShowChristmas] = useState(false)
+  const [showNewYear, setShowNewYear] = useState(false)
 
   useEffect(() => {
-    // Afficher le popup de Noël à chaque ouverture du site
+    // Afficher le popup de Bonne Année à chaque ouverture du site
     const timer = setTimeout(() => {
-      setShowChristmas(true)
+      setShowNewYear(true)
     }, 2000)
 
     return () => clearTimeout(timer)
@@ -35,9 +35,9 @@ export default function Home() {
       <Contact />
       <Footer />
       <Chatbot />
-      <ChristmasCelebration
-        isVisible={showChristmas}
-        onClose={() => setShowChristmas(false)}
+      <NewYearCelebration
+        isVisible={showNewYear}
+        onClose={() => setShowNewYear(false)}
       />
     </main>
   )
