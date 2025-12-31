@@ -28,11 +28,12 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     keywords: [
       ...post.tags,
       'ARCC',
-      'IA',
+      'Association des Ressortissants Camerounais au Canada',
       'Blog',
-      'Consulting',
-      'Mentoring',
-      'Transformation digitale'
+      'Établissement Canada',
+      'Support juridique',
+      'Mentorat',
+      'Communauté camerounaise'
     ],
     authors: [{ name: post.author }],
     openGraph: {

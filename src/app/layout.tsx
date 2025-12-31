@@ -16,24 +16,26 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "ARCC - Solutions IA, Mentoring et Consulting pour Accélérer Votre Croissance",
+    default: "ARCC - Association des Ressortissants Camerounais au Canada",
     template: "%s | ARCC"
   },
-  description: "ARCC vous aide à transformer l'IA en résultats mesurables en semaines, pas en mois. Consulting IA, mentoring et solutions sur mesure pour PME et startups.",
+  description: "ARCC unit, soutient et accompagne la communauté camerounaise au Canada. Établissement des nouveaux arrivants, support juridique, mentorat, réseautage professionnel et intervention de crise.",
   keywords: [
     "ARCC",
-    "IA",
-    "Intelligence Artificielle",
-    "Consulting IA",
-    "Mentoring",
-    "Solutions sur mesure",
-    "PME",
-    "Startups",
-    "Croissance business",
-    "Transformation digitale",
-    "Québec",
+    "Association des Ressortissants Camerounais au Canada",
+    "Communauté camerounaise",
+    "Camerounais au Canada",
+    "Établissement nouveaux arrivants",
+    "Support juridique",
+    "Mentorat",
+    "Réseautage professionnel",
+    "Intervention de crise",
+    "Répertoire des compétences",
     "Montréal",
-    "Canada"
+    "Québec",
+    "Canada",
+    "Immigration",
+    "Intégration"
   ],
   authors: [{ name: "ARCC Team" }],
   creator: "ARCC",
@@ -43,7 +45,7 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://ARCC.ca'),
+  metadataBase: new URL('https://camercanada.com'),
   alternates: {
     canonical: '/',
     languages: {
@@ -54,23 +56,23 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'fr_CA',
-    url: 'https://ARCC.ca',
+    url: 'https://camercanada.com',
     siteName: 'ARCC',
-    title: 'ARCC - Solutions IA, Mentoring et Consulting pour Accélérer Votre Croissance',
-    description: 'Transformez l\'IA en résultats mesurables en semaines, pas en mois. Consulting IA, mentoring et solutions sur mesure.',
+    title: 'ARCC - Association des Ressortissants Camerounais au Canada',
+    description: 'Unir, soutenir et accompagner la communauté camerounaise au Canada. Établissement, support juridique, mentorat et réseautage professionnel.',
     images: [
       {
         url: '/logo.png',
         width: 1200,
         height: 630,
-        alt: 'ARCC - Solutions IA et Consulting',
+        alt: 'ARCC - Association des Ressortissants Camerounais au Canada',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ARCC - Solutions IA, Mentoring et Consulting',
-    description: 'Transformez l\'IA en résultats mesurables en semaines, pas en mois.',
+    title: 'ARCC - Association des Ressortissants Camerounais au Canada',
+    description: 'Unir, soutenir et accompagner la communauté camerounaise au Canada.',
     images: ['/logo.png'],
     creator: '@ARCC',
   },

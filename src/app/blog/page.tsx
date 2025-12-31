@@ -7,37 +7,37 @@ import BlogCategories from '@/components/BlogCategories'
 import BlogTags from '@/components/BlogTags'
 
 export const metadata: Metadata = {
-  title: 'Blog & Insights IA | ARCC',
-  description: 'Découvrez les dernières insights sur la transformation IA, les histoires de succès en mentoring et les stratégies de croissance business. Analyse experte et conseils pratiques.',
+  title: 'Blog | ARCC - Association des Ressortissants Camerounais au Canada',
+  description: 'Découvrez nos articles sur l\'établissement au Canada, le support juridique, le mentorat et les ressources pour la communauté camerounaise. Conseils pratiques et témoignages.',
   keywords: [
-    'Blog IA',
-    'Insights IA',
-    'Transformation IA',
-    'Croissance business',
-    'Mentoring IA',
-    'Transformation digitale',
-    'Stratégies IA',
-    'Consulting IA',
+    'Blog ARCC',
+    'Établissement Canada',
+    'Immigration Cameroun',
+    'Support juridique',
+    'Mentorat',
+    'Communauté camerounaise',
+    'Ressources Canada',
+    'Nouveaux arrivants',
     'ARCC'
   ],
   openGraph: {
-    title: 'Blog & Insights IA | ARCC',
-    description: 'Découvrez les dernières insights sur la transformation IA, les histoires de succès en mentoring et les stratégies de croissance business.',
+    title: 'Blog | ARCC - Association des Ressortissants Camerounais au Canada',
+    description: 'Articles et ressources pour la communauté camerounaise au Canada : établissement, support juridique, mentorat et plus.',
     type: 'website',
-    url: 'https://ARCC.ca/blog',
+    url: 'https://camercanada.com/blog',
     images: [
       {
         url: '/logo.png',
         width: 1200,
         height: 630,
-        alt: 'Blog ARCC - Insights IA',
+        alt: 'Blog ARCC - Association des Ressortissants Camerounais au Canada',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Blog & Insights IA | ARCC',
-    description: 'Découvrez les dernières insights sur la transformation IA et la croissance business.',
+    title: 'Blog | ARCC - Association des Ressortissants Camerounais au Canada',
+    description: 'Articles et ressources pour la communauté camerounaise au Canada.',
     images: ['/logo.png'],
   },
   alternates: {
@@ -59,11 +59,11 @@ export default function BlogPage() {
       <section className="pt-32 pb-16 bg-gradient-to-r from-gray-900 via-blue-900 to-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            AI Insights & Knowledge
+            Blog & Ressources ARCC
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Discover the latest insights on AI transformation, mentoring success stories, 
-            and proven strategies for business growth. Expert analysis and practical guidance.
+            Découvrez nos articles sur l'établissement au Canada, le support juridique, le mentorat 
+            et les ressources pour la communauté camerounaise. Conseils pratiques et témoignages.
           </p>
         </div>
       </section>
@@ -88,10 +88,10 @@ export default function BlogPage() {
             <div className="lg:col-span-3">
               <div className="mb-8">
                 <h2 className="text-3xl font-bold text-gray-900 mb-2">
-                  Latest Insights
+                  Articles Récents
                 </h2>
                 <p className="text-gray-600">
-                  {posts.length} articles covering AI strategy, implementation, and success stories
+                  {posts.length} articles sur l'établissement, le support juridique et les ressources pour la communauté camerounaise
                 </p>
               </div>
               
