@@ -9,7 +9,7 @@ export default function Hero() {
   const { t } = useLanguage()
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-[#1a1a2e] overflow-hidden px-4 sm:px-6">
+    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-[#1a1a2e] via-[#2d1b3d] to-[#1a1a2e] overflow-hidden px-4 sm:px-6">
       {/* Background Elements - Motifs africains authentiques */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Motifs géométriques africains - Couleurs terre - Responsive */}
@@ -63,10 +63,14 @@ export default function Hero() {
           >
             <Link
               href="#contact"
-              className="group text-white px-6 sm:px-10 lg:px-12 py-4 sm:py-5 lg:py-6 rounded-xl sm:rounded-2xl text-sm sm:text-base lg:text-lg font-bold hover:opacity-90 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl border-2 border-[#FFD700] w-full sm:w-auto"
-              style={{ backgroundColor: '#8B4513' }}
+              className="group relative overflow-hidden text-white px-6 sm:px-10 lg:px-12 py-4 sm:py-5 lg:py-6 rounded-xl sm:rounded-2xl text-sm sm:text-base lg:text-lg font-bold transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl border-2 border-[#FFD700]/50 w-full sm:w-auto"
+              style={{ 
+                background: 'linear-gradient(135deg, #8B4513 0%, #D2691E 50%, #CD853F 100%)',
+                boxShadow: '0 10px 30px rgba(139, 69, 19, 0.5)'
+              }}
             >
-              <span className="flex items-center justify-center">
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+              <span className="relative z-10 flex items-center justify-center">
                 {t('hero.cta.primary')}
                 <ArrowRight className="ml-2 sm:ml-3 h-4 w-4 sm:h-5 sm:w-5 group-hover:translate-x-1 transition-transform duration-300" />
               </span>
@@ -74,7 +78,7 @@ export default function Hero() {
 
             <Link
               href="#services"
-              className="group text-white hover:text-[#FFD700] px-6 sm:px-10 lg:px-12 py-4 sm:py-5 lg:py-6 rounded-xl sm:rounded-2xl text-sm sm:text-base lg:text-lg font-bold border-2 border-white hover:border-[#FFD700] transition-all duration-300 hover:bg-white/10 w-full sm:w-auto"
+              className="group text-white hover:text-[#FFD700] px-6 sm:px-10 lg:px-12 py-4 sm:py-5 lg:py-6 rounded-xl sm:rounded-2xl text-sm sm:text-base lg:text-lg font-bold border-2 border-white/50 hover:border-[#FFD700] transition-all duration-300 hover:bg-white/10 backdrop-blur-sm w-full sm:w-auto"
             >
               <span>{t('hero.cta.secondary')}</span>
             </Link>
@@ -95,8 +99,8 @@ export default function Hero() {
       >
         <motion.div
           animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="text-white bg-white/10 backdrop-blur-sm rounded-full p-2 sm:p-3 border border-white/20 hover:bg-white/20 transition-all duration-300 cursor-pointer"
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          className="text-white bg-white/10 backdrop-blur-md rounded-full p-2 sm:p-3 border border-white/30 hover:bg-white/20 hover:border-[#FFD700]/50 transition-all duration-300 cursor-pointer shadow-lg"
         >
           <ChevronDown className="h-5 w-5 sm:h-6 sm:w-6 lg:h-8 lg:w-8" />
         </motion.div>

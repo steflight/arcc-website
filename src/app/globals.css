@@ -248,15 +248,23 @@ button:focus, a:focus, input:focus, textarea:focus {
   }
 }
 
-/* Enhanced button styles */
+/* Enhanced button styles - Thème africain */
 .btn-primary {
-  @apply bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold py-3 px-6 rounded-xl hover:from-blue-700 hover:to-blue-800 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl;
+  background: linear-gradient(135deg, #8B4513 0%, #D2691E 50%, #CD853F 100%);
+  @apply text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl;
+  box-shadow: 0 8px 25px rgba(139, 69, 19, 0.4);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 12px 35px rgba(139, 69, 19, 0.6);
 }
 
 .btn-secondary {
-  @apply bg-white text-gray-900 font-semibold py-3 px-6 rounded-xl border-2 border-gray-300 hover:border-gray-400 hover:bg-gray-50 transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg;
+  @apply bg-white text-gray-900 font-semibold py-3 px-6 rounded-xl border-2 border-[#8B4513]/30 hover:border-[#8B4513] hover:bg-[#F5F5DC]/50 transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg;
 }
 
 .btn-accent {
-  @apply bg-gradient-to-r from-orange-500 to-red-500 text-white font-semibold py-3 px-6 rounded-xl hover:from-orange-600 hover:to-red-600 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl;
+  background: linear-gradient(135deg, #D2691E 0%, #FF6347 50%, #FFD700 100%);
+  @apply text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl;
+  box-shadow: 0 8px 25px rgba(210, 105, 30, 0.4);
 }

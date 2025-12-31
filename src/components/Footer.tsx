@@ -42,13 +42,13 @@ export default function Footer() {
   }
 
   const socialLinks = [
-    { name: 'LinkedIn', icon: Linkedin, href: '#', color: 'hover:text-blue-600' },
-    { name: 'Twitter', icon: Twitter, href: '#', color: 'hover:text-blue-400' },
-    { name: 'Facebook', icon: Facebook, href: '#', color: 'hover:text-blue-700' }
+    { name: 'LinkedIn', icon: Linkedin, href: '#', color: 'hover:text-[#D2691E]' },
+    { name: 'Twitter', icon: Twitter, href: '#', color: 'hover:text-[#FFD700]' },
+    { name: 'Facebook', icon: Facebook, href: '#', color: 'hover:text-[#CD853F]' }
   ]
 
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white border-t border-[#8B4513]/20">
       {/* Main Footer Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-10 sm:py-12 lg:py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 sm:gap-8">
@@ -60,7 +60,7 @@ export default function Footer() {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">ARCC</h3>
+              <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 bg-gradient-to-r from-[#FFD700] to-[#D2691E] bg-clip-text text-transparent">ARCC</h3>
               <p className="text-gray-300 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
                 {t('footer.company.description')}
               </p>
@@ -96,7 +96,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-gray-300 hover:text-white transition-colors duration-200 text-sm sm:text-base"
+                    className="text-gray-300 hover:text-[#FFD700] transition-all duration-300 text-sm sm:text-base relative group"
                   >
                     {link.name}
                   </Link>
@@ -118,7 +118,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-gray-300 hover:text-white transition-colors duration-200 text-sm sm:text-base"
+                    className="text-gray-300 hover:text-[#FFD700] transition-all duration-300 text-sm sm:text-base relative group"
                   >
                     {link.name}
                   </Link>
@@ -140,7 +140,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-gray-300 hover:text-white transition-colors duration-200 text-sm sm:text-base"
+                    className="text-gray-300 hover:text-[#FFD700] transition-all duration-300 text-sm sm:text-base relative group"
                   >
                     {link.name}
                   </Link>
@@ -169,9 +169,14 @@ export default function Footer() {
               <input
                 type="email"
                 placeholder={t('footer.newsletter.placeholder')}
-                className="flex-1 px-3 sm:px-4 py-2.5 sm:py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm sm:text-base"
+                className="flex-1 px-3 sm:px-4 py-2.5 sm:py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-[#FFD700]/50 focus:border-[#FFD700]/50 focus:border-transparent text-sm sm:text-base transition-all duration-300"
               />
-              <button className="bg-blue-600 text-white px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300 text-sm sm:text-base">
+              <button 
+                className="text-white px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg font-semibold transition-all duration-300 text-sm sm:text-base shadow-lg hover:shadow-xl transform hover:scale-105"
+                style={{
+                  background: 'linear-gradient(135deg, #8B4513 0%, #D2691E 50%, #CD853F 100%)'
+                }}
+              >
                 {t('footer.newsletter.subscribe')}
               </button>
             </div>

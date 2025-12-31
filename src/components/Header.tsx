@@ -30,7 +30,7 @@ export default function Header() {
   }
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-lg shadow-lg border-b-2 border-gradient-to-r from-green-500 to-yellow-500">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/98 backdrop-blur-md shadow-md border-b border-[#8B4513]/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
         <div className="flex justify-between items-center h-16 sm:h-20">
           {/* Logo */}
@@ -52,9 +52,10 @@ export default function Header() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-gray-700 hover:text-blue-600 px-2 xl:px-3 py-2 text-xs xl:text-sm font-medium transition-colors duration-200 rounded-lg hover:bg-gray-50"
+                className="text-gray-800 hover:text-[#8B4513] px-2 xl:px-3 py-2 text-xs xl:text-sm font-medium transition-all duration-300 rounded-lg hover:bg-[#F5F5DC]/50 relative group"
               >
                 {item.name}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#8B4513] transition-all duration-300 group-hover:w-full"></span>
               </Link>
             ))}
           </nav>
@@ -65,7 +66,7 @@ export default function Header() {
             <div className="relative">
               <button
                 onClick={() => setIsLanguageOpen(!isLanguageOpen)}
-                className="flex items-center space-x-1 xl:space-x-2 text-gray-700 hover:text-blue-600 px-2 xl:px-3 py-2 text-xs xl:text-sm font-medium transition-colors duration-200 rounded-lg hover:bg-gray-50"
+                className="flex items-center space-x-1 xl:space-x-2 text-gray-800 hover:text-[#8B4513] px-2 xl:px-3 py-2 text-xs xl:text-sm font-medium transition-all duration-300 rounded-lg hover:bg-[#F5F5DC]/50"
               >
                 <Globe className="h-3 w-3 xl:h-4 xl:w-4" />
                 <span className="hidden xl:inline">{language.toUpperCase()}</span>
@@ -91,14 +92,14 @@ export default function Header() {
             {/* CTA Button - Arrêt plan visuel */}
             <Link
               href="/#contact"
-              className="group relative overflow-hidden px-4 xl:px-8 py-2 xl:py-4 rounded-xl xl:rounded-2xl text-xs xl:text-sm font-bold text-white transition-all duration-300 hover:scale-110 hover:shadow-2xl border-2 border-white/30 shadow-xl"
+              className="group relative overflow-hidden px-4 xl:px-8 py-2 xl:py-4 rounded-xl xl:rounded-2xl text-xs xl:text-sm font-bold text-white transition-all duration-300 hover:scale-105 hover:shadow-2xl shadow-lg"
               style={{
-                background: 'linear-gradient(135deg, #ff700a 0%, #ff8c00 50%, #ffa500 100%)',
-                boxShadow: '0 10px 30px rgba(255, 112, 10, 0.5), 0 0 0 2px rgba(255, 255, 255, 0.2)'
+                background: 'linear-gradient(135deg, #8B4513 0%, #D2691E 50%, #CD853F 100%)',
+                boxShadow: '0 8px 25px rgba(139, 69, 19, 0.4)'
               }}
             >
               {/* Effet de brillance au survol */}
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
 
               {/* Contenu du bouton */}
               <span className="relative z-10 flex items-center space-x-1 xl:space-x-2">
@@ -132,7 +133,7 @@ export default function Header() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="text-gray-700 hover:text-blue-600 block px-3 py-2.5 text-sm sm:text-base font-medium rounded-lg hover:bg-gray-50 transition-colors"
+                  className="text-gray-800 hover:text-[#8B4513] block px-3 py-2.5 text-sm sm:text-base font-medium rounded-lg hover:bg-[#F5F5DC]/50 transition-all duration-300"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
@@ -150,9 +151,9 @@ export default function Header() {
                           handleLanguageChange(lang.code)
                           setIsMenuOpen(false)
                         }}
-                        className={`flex items-center space-x-2 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${language === lang.code
-                            ? 'bg-blue-100 text-blue-700'
-                            : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                        className={`flex items-center space-x-2 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${language === lang.code
+                            ? 'bg-[#F5F5DC] text-[#8B4513] border-2 border-[#8B4513]/30'
+                            : 'bg-gray-100 text-gray-700 hover:bg-[#F5F5DC]/50 hover:text-[#8B4513]'
                           }`}
                       >
                         <span>{lang.flag}</span>
@@ -165,15 +166,15 @@ export default function Header() {
               <div className="pt-4 border-t border-gray-200">
                 <Link
                   href="#contact"
-                  className="group relative overflow-hidden block px-4 sm:px-6 py-3 sm:py-4 rounded-xl sm:rounded-2xl text-sm sm:text-base font-bold text-white transition-all duration-300 hover:scale-105 hover:shadow-2xl border-2 border-white/30 shadow-xl"
+                  className="group relative overflow-hidden block px-4 sm:px-6 py-3 sm:py-4 rounded-xl sm:rounded-2xl text-sm sm:text-base font-bold text-white transition-all duration-300 hover:scale-105 hover:shadow-2xl shadow-lg"
                   style={{
-                    background: 'linear-gradient(135deg, #ff700a 0%, #ff8c00 50%, #ffa500 100%)',
-                    boxShadow: '0 10px 30px rgba(255, 112, 10, 0.5), 0 0 0 2px rgba(255, 255, 255, 0.2)'
+                    background: 'linear-gradient(135deg, #8B4513 0%, #D2691E 50%, #CD853F 100%)',
+                    boxShadow: '0 8px 25px rgba(139, 69, 19, 0.4)'
                   }}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {/* Effet de brillance au survol */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
 
                   {/* Contenu du bouton */}
                   <span className="relative z-10 flex items-center justify-center space-x-2">
