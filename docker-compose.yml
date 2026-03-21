@@ -1,31 +1,96 @@
+version: '3.8'
+
+# Usage:
+#   Dev:        docker compose --profile dev up -d
+#   Staging:    docker compose --profile staging up -d
+#   Prod:       docker compose --profile prod up -d
+#   Build only: docker compose --profile build run --rm app-build
+
 services:
   # Service de développement
+  # Mode hot-reload avec volumes montés - Port: 3021
   app-dev:
     build:
       context: .
       dockerfile: Dockerfile
       target: development
+    container_name: arcc-website_app-dev_1
     ports:
-      - "3020:3000"
+      - "3021:3000"
     volumes:
       - .:/app
       - /app/node_modules
-      - /app/.next
+      - arcc-next-cache:/app/.next
     environment:
       - NODE_ENV=development
+      - WATCHPACK_POLLING=true
+      - CHOKIDAR_USEPOLLING=true
     networks:
-      - default
+      - dev-network
       - nginx-proxy-manager_default
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    cap_add:
+      - CHOWN
+      - SETUID
+      - SETGID
+    read_only: false
+    tmpfs:
+      - /tmp:noexec,nosuid,size=100m
     profiles:
       - dev
 
+  # Service de staging
+  # Pré-production pour tests - Port: 3022 - NPM: arcc-website_app-staging_1:3000
+  # Créer .env.staging si besoin (optionnel, sinon variables ci-dessous)
+  app-staging:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    container_name: arcc-website_app-staging_1
+    ports:
+      - "3022:3000"
+    volumes:
+      - ./content:/app/content
+      - ./public:/app/public
+    environment:
+      - NODE_ENV=production
+      - HOSTNAME=0.0.0.0
+      - PORT=3000
+      - NEXT_PUBLIC_SITE_URL=${NEXT_PUBLIC_SITE_URL_STAGING:-http://localhost:3022}
+    restart: unless-stopped
+    networks:
+      - staging-network
+      - nginx-proxy-manager_default
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    tmpfs:
+      - /tmp:noexec,nosuid,size=100m
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:3000/" ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    profiles:
+      - staging
+
   # Service de production
+  # Déploiement production - NPM: arcc-website_app-prod_1:3000
   app-prod:
     build:
       context: .
       dockerfile: Dockerfile
       target: production
-    container_name: arcc-website-app-prod-1
+    container_name: arcc-website_app-prod_1
+    volumes:
+      - ./content:/app/content
+      - ./public:/app/public
     env_file:
       - .env
     environment:
@@ -34,12 +99,24 @@ services:
       - PORT=3000
     restart: unless-stopped
     networks:
-      - default
+      - prod-network
       - nginx-proxy-manager_default
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    tmpfs:
+      - /tmp:noexec,nosuid,size=100m
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:3000/" ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
     profiles:
       - prod
 
-  # Service de build uniquement (pour tester la construction)
+  # Service de build uniquement (tester la construction sans lancer le serveur)
   app-build:
     build:
       context: .
@@ -51,10 +128,19 @@ services:
     profiles:
       - build
 
-# Réseaux
+# Réseaux : un par profil pour isoler dev / staging / prod
 networks:
-  default:
-    name: arcc-website-network
+  dev-network:
+    name: arcc-website-dev-network
+    driver: bridge
+  staging-network:
+    name: arcc-website-staging-network
+    driver: bridge
+  prod-network:
+    name: arcc-website-prod-network
     driver: bridge
   nginx-proxy-manager_default:
     external: true
+
+volumes:
+  arcc-next-cache:

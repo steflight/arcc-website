@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import OpenAI from 'openai'
+import { getRelevantRagDocuments } from '@/lib/rag/document-loader'
 
 // Configuration OpenAI
 const openai = new OpenAI({
@@ -58,6 +59,11 @@ INFORMATIONS SUR L'ARCC:
 - Services: Établissement des nouveaux arrivants, support juridique, mentorat, réseautage professionnel, intervention de crise, répertoire des compétences
 - Localisation: Canada (principalement Montréal, Québec)
 - Langues: Français et Anglais
+
+📝 POUR AJOUTER DES INFORMATIONS AU RAG:
+1. Modifiez cette section pour ajouter vos informations
+2. Ou consultez le fichier GUIDE-RAG.md pour des méthodes avancées
+3. Exemples d'informations à ajouter: événements, FAQ, programmes, ressources, horaires, etc.
 
 TON RÔLE:
 - Assistant communautaire chaleureux et bienveillant
@@ -181,9 +187,26 @@ export async function POST(request: NextRequest) {
     // Utiliser le prompt système approprié selon la langue détectée
     const systemPrompt = SYSTEM_PROMPTS[detectedLanguage]
 
+    // Ajout du contexte RAG (base de connaissances) pour répondre de manière plus précise.
+    const relevantDocs = getRelevantRagDocuments(message, 4)
+    const ragContext =
+      relevantDocs.length > 0
+        ? relevantDocs
+            .map(
+              (doc, idx) =>
+                `\n[Document ${idx + 1}] ${doc.title}\n${doc.content}\n`
+            )
+            .join('\n')
+        : ''
+
+    const systemPromptWithRag =
+      ragContext.trim().length > 0
+        ? `${systemPrompt}\n\nCONTEXTE RAG (réponses basées sur les guides ARCC):\n${ragContext}\n`
+        : systemPrompt
+
     // Construire l'historique de conversation
     const messages = [
-      { role: 'system', content: systemPrompt },
+      { role: 'system', content: systemPromptWithRag },
       ...conversationHistory.map((msg: any) => ({
         role: msg.role === 'user' ? 'user' : 'assistant',
         content: msg.content

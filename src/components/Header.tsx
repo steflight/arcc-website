@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Menu, X, Globe, ChevronDown } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -10,6 +10,53 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isLanguageOpen, setIsLanguageOpen] = useState(false)
   const { language, setLanguage, t } = useLanguage()
+  const [session, setSession] = useState<any>(undefined)
+
+  useEffect(() => {
+    let cancelled = false
+    fetch('/api/auth/me', { credentials: 'same-origin' })
+      .then((r) => r.json())
+      .then((data) => {
+        if (cancelled) return
+        setSession(data?.session ?? null)
+      })
+      .catch(() => {
+        if (cancelled) return
+        setSession(null)
+      })
+
+    return () => {
+      cancelled = true
+    }
+  }, [])
+
+  const handleSignOut = async () => {
+    try {
+      const csrfRes = await fetch('/api/auth/csrf')
+      const csrfData = await csrfRes.json().catch(() => ({}))
+      const csrfToken = csrfData?.csrfToken as string | undefined
+
+      if (!csrfToken) {
+        window.location.href = '/login'
+        return
+      }
+
+      await fetch('/api/auth/signout', {
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: new URLSearchParams({
+          csrfToken,
+          callbackUrl: '/',
+        }),
+      })
+    } catch {
+      // Si la déconnexion échoue, rediriger quand même.
+    } finally {
+      window.location.href = '/'
+    }
+  }
 
   const navigation = [
     { name: t('nav.services'), href: '/#services' },
@@ -30,7 +77,7 @@ export default function Header() {
   }
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/98 backdrop-blur-md shadow-md border-b border-[#8B4513]/20">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-lg border-b-2 border-[#8B4513]/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
         <div className="flex justify-between items-center h-16 sm:h-20">
           {/* Logo */}
@@ -52,7 +99,7 @@ export default function Header() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-gray-800 hover:text-[#8B4513] px-2 xl:px-3 py-2 text-xs xl:text-sm font-medium transition-all duration-300 rounded-lg hover:bg-[#F5F5DC]/50 relative group"
+                className="text-gray-900 font-semibold hover:text-[#8B4513] px-2 xl:px-3 py-2 text-xs xl:text-sm transition-all duration-300 rounded-lg hover:bg-[#F5F5DC] relative group"
               >
                 {item.name}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#8B4513] transition-all duration-300 group-hover:w-full"></span>
@@ -66,7 +113,7 @@ export default function Header() {
             <div className="relative">
               <button
                 onClick={() => setIsLanguageOpen(!isLanguageOpen)}
-                className="flex items-center space-x-1 xl:space-x-2 text-gray-800 hover:text-[#8B4513] px-2 xl:px-3 py-2 text-xs xl:text-sm font-medium transition-all duration-300 rounded-lg hover:bg-[#F5F5DC]/50"
+                className="flex items-center space-x-1 xl:space-x-2 text-gray-900 font-semibold hover:text-[#8B4513] px-2 xl:px-3 py-2 text-xs xl:text-sm transition-all duration-300 rounded-lg hover:bg-[#F5F5DC]"
               >
                 <Globe className="h-3 w-3 xl:h-4 xl:w-4" />
                 <span className="hidden xl:inline">{language.toUpperCase()}</span>
@@ -90,18 +137,41 @@ export default function Header() {
             </div>
 
             {/* CTA Button - Arrêt plan visuel */}
+          <div className="flex items-center space-x-3">
+            {session ? (
+              <>
+                <Link
+                  href="/dashboard"
+                  className="px-4 xl:px-6 py-2 xl:py-3 rounded-xl text-xs xl:text-sm font-bold text-white bg-[#8B4513] hover:bg-[#A0522D] transition-colors"
+                >
+                  Espace membre
+                </Link>
+                <button
+                  onClick={handleSignOut}
+                  className="px-4 xl:px-6 py-2 xl:py-3 rounded-xl text-xs xl:text-sm font-bold text-gray-900 hover:bg-[#F5F5DC] border border-[#8B4513]/30 transition-colors"
+                  type="button"
+                >
+                  Deconnexion
+                </button>
+              </>
+            ) : (
+              <Link
+                href="/login"
+                className="px-4 xl:px-6 py-2 xl:py-3 rounded-xl text-xs xl:text-sm font-bold text-white bg-[#8B4513] hover:bg-[#A0522D] transition-colors"
+              >
+                Connexion
+              </Link>
+            )}
+
             <Link
               href="/#contact"
-              className="group relative overflow-hidden px-4 xl:px-8 py-2 xl:py-4 rounded-xl xl:rounded-2xl text-xs xl:text-sm font-bold text-white transition-all duration-300 hover:scale-105 hover:shadow-2xl shadow-lg"
+              className="group relative overflow-hidden px-2 xl:px-4 py-2 xl:py-3 rounded-xl text-xs xl:text-sm font-bold text-white transition-all duration-300 hover:scale-105 hover:shadow-2xl shadow-lg"
               style={{
-                background: 'linear-gradient(135deg, #8B4513 0%, #D2691E 50%, #CD853F 100%)',
-                boxShadow: '0 8px 25px rgba(139, 69, 19, 0.4)'
+                background:
+                  'linear-gradient(135deg, #8B4513 0%, #D2691E 50%, #CD853F 100%)',
+                boxShadow: '0 8px 25px rgba(139, 69, 19, 0.4)',
               }}
             >
-              {/* Effet de brillance au survol */}
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
-
-              {/* Contenu du bouton */}
               <span className="relative z-10 flex items-center space-x-1 xl:space-x-2">
                 <span className="hidden xl:inline">{t('header.joinUs')}</span>
                 <span className="xl:hidden">Rejoindre</span>
@@ -109,12 +179,13 @@ export default function Header() {
               </span>
             </Link>
           </div>
+          </div>
 
           {/* Mobile menu button */}
           <div className="lg:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-700 hover:text-blue-600 p-2 rounded-lg hover:bg-gray-50"
+              className="text-gray-900 hover:text-[#8B4513] p-2 rounded-lg hover:bg-[#F5F5DC] font-semibold"
             >
               {isMenuOpen ? (
                 <X className="h-6 w-6" />
@@ -139,6 +210,26 @@ export default function Header() {
                   {item.name}
                 </Link>
               ))}
+
+              <div className="pt-2 border-t border-gray-200">
+                {session ? (
+                  <Link
+                    href="/dashboard"
+                    className="block px-3 py-2 text-sm font-semibold text-[#8B4513]"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Espace membre
+                  </Link>
+                ) : (
+                  <Link
+                    href="/login"
+                    className="block px-3 py-2 text-sm font-semibold text-[#8B4513]"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Connexion
+                  </Link>
+                )}
+              </div>
               {/* Language Switcher Mobile */}
               <div className="pt-2 border-t border-gray-200">
                 <div className="px-3 py-2">
